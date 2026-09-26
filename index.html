@@ -1,14 +1,58 @@
 <!DOCTYPE html>
 <html lang="tr">
 <head>
+
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<meta name="viewport"
+      content="width=device-width, initial-scale=1.0">
 
 <title>Sencer Ağkıran | Kişisel Web Sitesi</title>
 
-<meta name="description" content="Sencer Ağkıran kişisel web sitesi.">
+<meta name="description"
+      content="Sencer Ağkıran'ın resmi kişisel web sitesi. Kişisel profil, dijital çalışmalar, projeler ve iletişim bilgileri.">
+
+<meta name="keywords"
+      content="Sencer Ağkıran, Sencer Agkiran, Sencer Ağkıran resmi web sitesi, Sencer Ağkıran kişisel web sitesi">
+
+<meta name="author"
+      content="Sencer Ağkıran">
+
+<meta name="robots"
+      content="index, follow">
+
+<meta name="theme-color"
+      content="#07131f">
+
+<meta property="og:title"
+      content="Sencer Ağkıran | Kişisel Web Sitesi">
+
+<meta property="og:description"
+      content="Sencer Ağkıran'ın kişisel web sitesi.">
+
+<meta property="og:type"
+      content="website">
+
+
+<!-- GOOGLE / ARAMA MOTORLARI İÇİN YAPISAL BİLGİ -->
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Person",
+  "name": "Sencer Ağkıran",
+  "url": "https://senceragkiran.github.io",
+  "email": "mailto:fsenceragkiran@gmail.com",
+  "image": "https://senceragkiran.github.io/profil.jpg"
+}
+</script>
+
 
 <style>
+
+/* ==============================
+   TEMEL AYARLAR
+============================== */
 
 *{
     margin:0;
@@ -21,227 +65,435 @@ html{
 }
 
 body{
-    background:#07131e;
-    color:#f3efe7;
+    background:#07131f;
+    color:#f4f0e8;
     font-family:Georgia, "Times New Roman", serif;
     overflow-x:hidden;
 }
 
-/* ARKA PLAN */
+
+/* ==============================
+   ARKA PLAN
+============================== */
 
 body::before{
     content:"";
     position:fixed;
     inset:0;
-    pointer-events:none;
+
     background:
-        radial-gradient(circle at 20% 20%, rgba(191,153,75,.10), transparent 30%),
-        radial-gradient(circle at 80% 70%, rgba(191,153,75,.07), transparent 30%);
+        radial-gradient(
+            circle at 15% 20%,
+            rgba(198,163,91,.09),
+            transparent 30%
+        ),
+        radial-gradient(
+            circle at 85% 75%,
+            rgba(198,163,91,.07),
+            transparent 30%
+        );
+
+    pointer-events:none;
     z-index:-2;
 }
 
 body::after{
     content:"";
+
     position:fixed;
-    width:600px;
-    height:600px;
-    border:1px solid rgba(191,153,75,.13);
+
+    width:650px;
+    height:650px;
+
+    border:1px solid rgba(198,163,91,.11);
+
     border-radius:50%;
-    top:10%;
-    right:-250px;
+
+    right:-300px;
+    top:15%;
+
+    pointer-events:none;
     z-index:-1;
 }
 
-/* HEADER */
+
+/* ==============================
+   ÜST MENÜ
+============================== */
 
 header{
+    position:sticky;
+    top:0;
+
     width:100%;
-    padding:28px 7%;
-    border-bottom:1px solid rgba(191,153,75,.55);
-    background:rgba(7,19,30,.94);
-    position:relative;
-    z-index:10;
+
+    padding:23px 7%;
+
+    background:rgba(7,19,31,.94);
+
+    border-bottom:1px solid
+    rgba(198,163,91,.42);
+
+    backdrop-filter:blur(12px);
+
+    z-index:100;
+}
+
+.header-inner{
+    max-width:1250px;
+    margin:auto;
+
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
 }
 
 .logo{
-    letter-spacing:4px;
-    font-size:25px;
+    color:#fff;
+
+    font-size:22px;
     font-weight:bold;
+
+    letter-spacing:4px;
 }
 
-.logo span{
+.logo small{
     display:block;
-    margin-top:8px;
-    color:#c7a45f;
-    font-size:11px;
-    letter-spacing:6px;
+
+    margin-top:7px;
+
+    color:#c6a35b;
+
+    font-size:9px;
+
+    letter-spacing:5px;
+
     font-weight:normal;
 }
 
-/* HERO */
 
-.hero{
-    min-height:calc(100vh - 105px);
+/* MENÜ */
+
+nav{
     display:flex;
-    flex-direction:column;
-    justify-content:center;
-    align-items:center;
-    text-align:center;
-    padding:70px 25px;
-    position:relative;
+    gap:30px;
 }
 
-.hero::before{
-    content:"";
-    position:absolute;
-    width:500px;
-    height:500px;
-    border:1px solid rgba(199,164,95,.12);
-    border-radius:50%;
-    top:50%;
-    left:50%;
-    transform:translate(-50%,-50%);
-}
+nav a{
+    color:#c8c8c4;
 
-/* EL YAZISI */
-
-.hand{
-    font-family:
-        "Segoe Print",
-        "Bradley Hand",
-        "Comic Sans MS",
-        cursive;
-    font-weight:400;
-    letter-spacing:1px;
-}
-
-.small-title{
-    color:#c7a45f;
-    font-size:14px;
-    letter-spacing:7px;
-    margin-bottom:30px;
-    position:relative;
-    z-index:1;
-}
-
-.hero-name{
-    position:relative;
-    z-index:1;
-    line-height:.9;
-}
-
-.hero-name .first{
-    display:block;
-    font-size:clamp(58px,14vw,105px);
-    color:#f4f0e8;
-}
-
-.hero-name .last{
-    display:block;
-    font-size:clamp(55px,13vw,100px);
-    color:#c7a45f;
-    margin-top:8px;
-}
-
-.description{
-    max-width:650px;
-    margin:38px auto;
-    color:#c9c9c5;
-    font-size:19px;
-    line-height:1.9;
-    position:relative;
-    z-index:1;
-}
-
-.signature{
-    color:#c7a45f;
-    font-size:23px;
-    margin-top:20px;
-}
-
-/* BUTONLAR */
-
-.buttons{
-    display:flex;
-    gap:18px;
-    justify-content:center;
-    flex-wrap:wrap;
-    position:relative;
-    z-index:1;
-    margin-top:15px;
-}
-
-.btn{
-    padding:17px 35px;
     text-decoration:none;
-    text-transform:uppercase;
-    letter-spacing:3px;
-    font-size:12px;
+
+    font-size:11px;
+
+    letter-spacing:2px;
+
     transition:.3s;
 }
 
-.btn-main{
-    background:#c7a45f;
-    color:#08131d;
+nav a:hover{
+    color:#c6a35b;
 }
 
-.btn-main:hover{
-    background:#e0c27c;
+
+/* ==============================
+   HERO
+============================== */
+
+.hero{
+    min-height:calc(100vh - 90px);
+
+    display:flex;
+
+    flex-direction:column;
+
+    justify-content:center;
+
+    align-items:center;
+
+    text-align:center;
+
+    padding:70px 20px;
+
+    position:relative;
+}
+
+
+/* dekoratif çember */
+
+.hero::before{
+    content:"";
+
+    position:absolute;
+
+    width:min(650px,90vw);
+    height:min(650px,90vw);
+
+    border:1px solid
+    rgba(198,163,91,.11);
+
+    border-radius:50%;
+
+    left:50%;
+    top:50%;
+
+    transform:translate(-50%,-50%);
+
+    pointer-events:none;
+}
+
+
+/* küçük başlık */
+
+.kicker{
+    position:relative;
+    z-index:2;
+
+    color:#c6a35b;
+
+    font-size:12px;
+
+    letter-spacing:8px;
+
+    margin-bottom:30px;
+}
+
+
+/* ==============================
+   EL YAZISI
+============================== */
+
+.handwriting{
+    font-family:
+        "Segoe Print",
+        "Bradley Hand",
+        "Lucida Handwriting",
+        "Comic Sans MS",
+        cursive;
+
+    font-weight:400;
+}
+
+
+/* ==============================
+   ANA İSİM
+============================== */
+
+.hero-name{
+    position:relative;
+    z-index:2;
+
+    line-height:.85;
+}
+
+.hero-name .sencer{
+    display:block;
+
+    color:#f7f3eb;
+
+    font-size:
+        clamp(62px,14vw,125px);
+
+    letter-spacing:-3px;
+}
+
+.hero-name .agkiran{
+    display:block;
+
+    color:#c6a35b;
+
+    font-size:
+        clamp(55px,13vw,115px);
+
+    letter-spacing:-4px;
+
+    margin-top:13px;
+}
+
+
+/* ==============================
+   AÇIKLAMA
+============================== */
+
+.hero-description{
+    position:relative;
+    z-index:2;
+
+    max-width:680px;
+
+    margin:42px auto 22px;
+
+    color:#c6c8c7;
+
+    font-size:18px;
+
+    line-height:2;
+
+    letter-spacing:.3px;
+}
+
+.signature{
+    position:relative;
+    z-index:2;
+
+    color:#c6a35b;
+
+    font-size:25px;
+
+    margin-bottom:35px;
+}
+
+
+/* ==============================
+   BUTONLAR
+============================== */
+
+.buttons{
+    position:relative;
+    z-index:2;
+
+    display:flex;
+
+    justify-content:center;
+
+    gap:15px;
+
+    flex-wrap:wrap;
+}
+
+.btn{
+    display:inline-block;
+
+    padding:17px 34px;
+
+    text-decoration:none;
+
+    text-transform:uppercase;
+
+    letter-spacing:2.5px;
+
+    font-size:10px;
+
+    transition:.3s;
+}
+
+.btn-gold{
+    background:#c6a35b;
+
+    color:#07131f;
+}
+
+.btn-gold:hover{
+    background:#dfc17c;
+
     transform:translateY(-3px);
 }
 
 .btn-outline{
-    border:1px solid rgba(255,255,255,.35);
-    color:white;
+    border:1px solid
+    rgba(255,255,255,.32);
+
+    color:#fff;
 }
 
 .btn-outline:hover{
-    border-color:#c7a45f;
-    color:#c7a45f;
+    border-color:#c6a35b;
+
+    color:#c6a35b;
+
+    transform:translateY(-3px);
 }
 
-/* PROFİL */
+
+/* ==============================
+   PROFİL
+============================== */
 
 .profile{
-    padding:110px 7%;
     max-width:1200px;
+
     margin:auto;
+
+    padding:120px 7%;
 }
 
-.section-label{
-    color:#c7a45f;
+.section-kicker{
+    color:#c6a35b;
+
+    font-size:11px;
+
     letter-spacing:6px;
-    font-size:13px;
-    margin-bottom:18px;
+
+    margin-bottom:17px;
 }
 
 .section-title{
-    font-size:45px;
-    margin-bottom:50px;
+    color:#fff;
+
+    font-size:48px;
+
+    line-height:1.1;
+
+    margin-bottom:55px;
 }
 
 .profile-grid{
     display:grid;
-    grid-template-columns:1fr 1fr;
-    gap:55px;
+
+    grid-template-columns:
+        minmax(0,1fr)
+        minmax(0,1fr);
+
+    gap:65px;
+
     align-items:center;
 }
 
-.photo-frame{
-    padding:16px;
-    border:1px solid rgba(199,164,95,.55);
-    background:#0c1b29;
+
+/* FOTOĞRAF */
+
+.photo-box{
+    position:relative;
+
+    padding:14px;
+
+    border:1px solid
+    rgba(198,163,91,.55);
+
+    background:#0b1a27;
 }
 
-.photo-frame img{
-    display:block;
-    width:100%;
-    height:auto;
+.photo-box::before{
+    content:"";
+
+    position:absolute;
+
+    inset:-7px;
+
+    border:1px solid
+    rgba(198,163,91,.13);
+
+    pointer-events:none;
 }
+
+.photo-box img{
+    display:block;
+
+    width:100%;
+
+    height:auto;
+
+    object-fit:cover;
+}
+
+
+/* METİN */
 
 .profile-text{
-    color:#c8cbc9;
-    font-size:18px;
+    color:#c7cbca;
+
+    font-size:17px;
+
     line-height:2;
 }
 
@@ -249,320 +501,656 @@ header{
     color:#fff;
 }
 
-/* BİLGİLER */
 
-.info{
-    padding:100px 7%;
-    background:#091722;
-    border-top:1px solid rgba(199,164,95,.18);
-    border-bottom:1px solid rgba(199,164,95,.18);
+/* ==============================
+   ÇALIŞMA ALANLARI
+============================== */
+
+.areas{
+    background:#091824;
+
+    border-top:1px solid
+    rgba(198,163,91,.16);
+
+    border-bottom:1px solid
+    rgba(198,163,91,.16);
+
+    padding:110px 7%;
 }
 
-.info-container{
-    max-width:1100px;
+.areas-inner{
+    max-width:1150px;
+
     margin:auto;
 }
 
 .cards{
     display:grid;
-    grid-template-columns:repeat(3,1fr);
-    gap:20px;
+
+    grid-template-columns:
+        repeat(3,1fr);
+
+    gap:22px;
+
     margin-top:45px;
 }
 
 .card{
-    border:1px solid rgba(199,164,95,.25);
-    padding:35px 25px;
-    background:rgba(255,255,255,.015);
-    transition:.3s;
+    padding:38px 28px;
+
+    min-height:210px;
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(255,255,255,.025),
+            rgba(255,255,255,.008)
+        );
+
+    border:1px solid
+    rgba(198,163,91,.23);
+
+    transition:.35s;
 }
 
 .card:hover{
-    transform:translateY(-5px);
-    border-color:#c7a45f;
+    transform:translateY(-7px);
+
+    border-color:#c6a35b;
+}
+
+.card-number{
+    color:#c6a35b;
+
+    font-size:11px;
+
+    letter-spacing:3px;
+
+    margin-bottom:30px;
 }
 
 .card h3{
-    color:#c7a45f;
-    font-size:15px;
+    color:#fff;
+
+    font-size:16px;
+
     letter-spacing:2px;
-    margin-bottom:15px;
+
+    margin-bottom:18px;
 }
 
 .card p{
-    color:#bfc4c3;
+    color:#aeb5b5;
+
     line-height:1.8;
+
+    font-size:15px;
 }
 
-/* İLETİŞİM */
+
+/* ==============================
+   İLETİŞİM
+============================== */
 
 .contact{
+    padding:130px 25px;
+
     text-align:center;
-    padding:120px 25px;
 }
 
 .contact h2{
-    font-size:48px;
-    margin-bottom:20px;
+    color:#fff;
+
+    font-size:
+        clamp(38px,8vw,65px);
+
+    margin-bottom:25px;
 }
 
 .contact p{
-    color:#aaa;
-    margin-bottom:35px;
-    font-size:17px;
+    max-width:600px;
+
+    margin:0 auto 38px;
+
+    color:#aeb5b5;
+
+    line-height:1.9;
+
+    font-size:16px;
 }
 
-/* FOOTER */
+
+/* ==============================
+   E-POSTA
+============================== */
+
+.email{
+    display:block;
+
+    margin-top:25px;
+
+    color:#c6a35b;
+
+    text-decoration:none;
+
+    font-family:
+        "Segoe Print",
+        "Bradley Hand",
+        cursive;
+
+    font-size:21px;
+
+    transition:.3s;
+}
+
+.email:hover{
+    color:#ead08e;
+}
+
+
+/* ==============================
+   FOOTER
+============================== */
 
 footer{
-    text-align:center;
     padding:35px 20px;
-    border-top:1px solid rgba(199,164,95,.25);
-    color:#777;
-    font-size:12px;
+
+    text-align:center;
+
+    border-top:1px solid
+    rgba(198,163,91,.22);
+
+    color:#707879;
+
+    font-size:10px;
+
     letter-spacing:2px;
 }
 
-/* MOBİL */
 
-@media(max-width:750px){
+/* ==============================
+   MOBİL
+============================== */
+
+@media(max-width:800px){
 
     header{
-        padding:25px 25px;
+        padding:20px;
+    }
+
+    .header-inner{
+        justify-content:center;
+    }
+
+    nav{
+        display:none;
     }
 
     .logo{
-        font-size:21px;
-    }
-
-    .hero{
-        min-height:calc(100vh - 90px);
-        padding:50px 20px;
-    }
-
-    .small-title{
-        font-size:11px;
-        letter-spacing:5px;
-    }
-
-    .description{
-        font-size:16px;
-        line-height:1.8;
-        margin:30px auto;
-    }
-
-    .signature{
         font-size:20px;
     }
 
+    .hero{
+        min-height:calc(100vh - 75px);
+
+        padding:
+            60px 20px
+            70px;
+    }
+
+    .kicker{
+        font-size:9px;
+
+        letter-spacing:5px;
+
+        margin-bottom:27px;
+    }
+
+    .hero-name .sencer{
+        font-size:62px;
+    }
+
+    .hero-name .agkiran{
+        font-size:56px;
+
+        margin-top:14px;
+    }
+
+    .hero-description{
+        font-size:15px;
+
+        line-height:1.9;
+
+        margin-top:35px;
+    }
+
+    .signature{
+        font-size:21px;
+    }
+
     .profile{
-        padding:80px 22px;
+        padding:
+            85px 22px;
     }
 
     .section-title{
-        font-size:36px;
+        font-size:38px;
+
+        margin-bottom:40px;
     }
 
     .profile-grid{
         grid-template-columns:1fr;
-        gap:35px;
+
+        gap:40px;
     }
 
     .profile-text{
-        font-size:16px;
+        font-size:15px;
+
         line-height:1.9;
+    }
+
+    .areas{
+        padding:
+            85px 22px;
     }
 
     .cards{
         grid-template-columns:1fr;
+
+        gap:17px;
     }
 
-    .info{
-        padding:80px 22px;
+    .card{
+        min-height:auto;
     }
 
-    .contact h2{
-        font-size:38px;
+    .contact{
+        padding:
+            95px 22px;
+    }
+
+}
+
+
+/* ==============================
+   ÇOK KÜÇÜK TELEFONLAR
+============================== */
+
+@media(max-width:390px){
+
+    .hero-name .sencer{
+        font-size:52px;
+    }
+
+    .hero-name .agkiran{
+        font-size:47px;
+    }
+
+    .hero-description{
+        font-size:14px;
+    }
+
+    .btn{
+        width:100%;
     }
 
 }
 
 </style>
+
 </head>
+
 
 <body>
 
+
+<!-- ==========================
+     HEADER
+========================== -->
+
 <header>
 
+<div class="header-inner">
+
     <div class="logo">
+
         SENCER AĞKIRAN
-        <span>KİŞİSEL WEB SİTESİ</span>
+
+        <small>
+            KİŞİSEL WEB SİTESİ
+        </small>
+
     </div>
+
+
+    <nav>
+
+        <a href="#anasayfa">
+            ANASAYFA
+        </a>
+
+        <a href="#profil">
+            PROFİL
+        </a>
+
+        <a href="#alanlar">
+            ÇALIŞMALAR
+        </a>
+
+        <a href="#iletisim">
+            İLETİŞİM
+        </a>
+
+    </nav>
+
+</div>
 
 </header>
 
 
-<!-- ANA SAYFA -->
+
+<!-- ==========================
+     ANASAYFA
+========================== -->
+
+<main id="anasayfa">
 
 <section class="hero">
 
-    <div class="small-title">
+
+    <div class="kicker">
         KİŞİSEL PROFİL
     </div>
 
-    <h1 class="hero-name hand">
-        <span class="first">Sencer</span>
-        <span class="last">AĞKIRAN</span>
+
+    <h1 class="hero-name handwriting">
+
+        <span class="sencer">
+            Sencer
+        </span>
+
+        <span class="agkiran">
+            AĞKIRAN
+        </span>
+
     </h1>
 
-    <p class="description">
-        Kişisel çalışmalar, dijital projeler ve profesyonel
-        gelişim alanındaki çalışmaların yer aldığı
-        kişisel web sitesi.
+
+    <p class="hero-description">
+
+        Dijital çalışmalar, kişisel projeler,
+        teknoloji ve gelişim odaklı çalışmaların
+        yer aldığı kişisel web sitesi.
+
     </p>
 
-    <div class="signature hand">
+
+    <div class="signature handwriting">
         Sencer Ağkıran
     </div>
 
+
     <div class="buttons">
 
-        <a href="#profil" class="btn btn-main">
+        <a
+            href="#profil"
+            class="btn btn-gold">
+
             Profili İncele
+
         </a>
 
-        <a href="#iletisim" class="btn btn-outline">
+
+        <a
+            href="#iletisim"
+            class="btn btn-outline">
+
             İletişim
+
         </a>
 
     </div>
+
 
 </section>
 
 
-<!-- PROFİL -->
 
-<section class="profile" id="profil">
+<!-- ==========================
+     PROFİL
+========================== -->
 
-    <div class="section-label">
+<section
+    class="profile"
+    id="profil">
+
+
+    <div class="section-kicker">
         PROFİL
     </div>
 
-    <h2 class="section-title hand">
+
+    <h2 class="section-title handwriting">
         Hakkımda
     </h2>
 
+
     <div class="profile-grid">
 
-        <div class="photo-frame">
-            <img src="profil.jpg" alt="Sencer Ağkıran">
+
+        <div class="photo-box">
+
+            <img
+                src="profil.jpg"
+                alt="Sencer Ağkıran"
+                loading="lazy">
+
         </div>
+
 
         <div class="profile-text">
 
             <p>
-                Merhaba, ben <strong>Sencer Ağkıran.</strong>
+
+                Merhaba, ben
+                <strong>Sencer Ağkıran.</strong>
+
             </p>
+
 
             <br>
 
+
             <p>
-                Dijital projeler, teknoloji ve kişisel gelişim
-                alanlarına ilgi duyan; yeni fikirler geliştirmeyi
-                ve bunları dijital ortama taşımayı seven biriyim.
+
+                Teknoloji, dijital projeler ve
+                yeni fikirler geliştirme alanlarına
+                ilgi duyuyorum.
+
             </p>
+
 
             <br>
 
+
             <p>
-                Bu web sitesi; çalışmalarımı, projelerimi ve
-                kişisel bilgilerimi daha düzenli ve profesyonel
-                bir şekilde sunmak amacıyla hazırlanmıştır.
+
+                Bu kişisel web sitesi; çalışmalarımı,
+                projelerimi ve kendim hakkında
+                paylaşmak istediğim bilgileri
+                sade ve profesyonel bir şekilde
+                sunmak amacıyla hazırlanmıştır.
+
             </p>
 
         </div>
+
 
     </div>
 
 </section>
 
 
-<!-- ALANLAR -->
 
-<section class="info">
+<!-- ==========================
+     ÇALIŞMALAR
+========================== -->
 
-    <div class="info-container">
+<section
+    class="areas"
+    id="alanlar">
 
-        <div class="section-label">
-            ÇALIŞMA ALANLARI
+
+<div class="areas-inner">
+
+
+    <div class="section-kicker">
+        ÇALIŞMA ALANLARI
+    </div>
+
+
+    <h2 class="section-title handwriting">
+        İlgi Alanlarım
+    </h2>
+
+
+    <div class="cards">
+
+
+        <div class="card">
+
+            <div class="card-number">
+                01
+            </div>
+
+            <h3>
+                DİJİTAL PROJELER
+            </h3>
+
+            <p>
+
+                Web projeleri, dijital fikirler
+                ve kullanıcı odaklı çalışmalar.
+
+            </p>
+
         </div>
 
-        <h2 class="section-title hand">
-            İlgi Alanlarım
-        </h2>
 
-        <div class="cards">
 
-            <div class="card">
-                <h3>DİJİTAL PROJELER</h3>
-                <p>
-                    Web tabanlı projeler, dijital fikirler
-                    ve kullanıcı odaklı çalışmalar.
-                </p>
+        <div class="card">
+
+            <div class="card-number">
+                02
             </div>
 
-            <div class="card">
-                <h3>TEKNOLOJİ</h3>
-                <p>
-                    Yazılım, internet teknolojileri ve
-                    modern dijital çözümler.
-                </p>
-            </div>
+            <h3>
+                TEKNOLOJİ
+            </h3>
 
-            <div class="card">
-                <h3>KİŞİSEL GELİŞİM</h3>
-                <p>
-                    Öğrenme, araştırma ve sürekli gelişim
-                    odaklı çalışmalar.
-                </p>
-            </div>
+            <p>
+
+                Yazılım, internet teknolojileri
+                ve modern dijital çözümler.
+
+            </p>
 
         </div>
+
+
+
+        <div class="card">
+
+            <div class="card-number">
+                03
+            </div>
+
+            <h3>
+                GELİŞİM
+            </h3>
+
+            <p>
+
+                Öğrenme, araştırma,
+                üretme ve sürekli gelişim.
+
+            </p>
+
+        </div>
+
 
     </div>
+
+</div>
 
 </section>
 
 
-<!-- İLETİŞİM -->
 
-<section class="contact" id="iletisim">
+<!-- ==========================
+     İLETİŞİM
+========================== -->
 
-    <div class="section-label">
+<section
+    class="contact"
+    id="iletisim">
+
+
+    <div class="section-kicker">
         İLETİŞİM
     </div>
 
-    <h2 class="hand">
+
+    <h2 class="handwriting">
         Benimle İletişime Geçin
     </h2>
 
+
     <p>
-        Profesyonel iletişim ve projeler hakkında görüşmek için
-        benimle iletişime geçebilirsiniz.
+
+        Profesyonel iletişim,
+        projeler veya diğer konular
+        için benimle iletişime geçebilirsiniz.
+
     </p>
 
+
     <a
-        href="mailto:iletisim@example.com"
-        class="btn btn-main">
-        E-posta Gönder
+        href="mailto:fsenceragkiran@gmail.com"
+        class="btn btn-gold">
+
+        E-POSTA GÖNDER
+
     </a>
+
+
+    <a
+        href="mailto:fsenceragkiran@gmail.com"
+        class="email">
+
+        fsenceragkiran@gmail.com
+
+    </a>
+
 
 </section>
 
 
+</main>
+
+
+
+<!-- ==========================
+     FOOTER
+========================== -->
+
 <footer>
 
-    © 2026 Sencer Ağkıran — Tüm hakları saklıdır.
+    © 2026 Sencer Ağkıran
+    ·
+    Tüm hakları saklıdır.
 
 </footer>
 
