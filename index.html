@@ -1,58 +1,47 @@
 <!DOCTYPE html>
 <html lang="tr">
 <head>
-
 <meta charset="UTF-8">
 
 <meta name="viewport"
       content="width=device-width, initial-scale=1.0">
 
-<title>Sencer Ağkıran | Kişisel Web Sitesi</title>
+<title>Sencer AĞKIRAN | Resmî Kişisel Web Sitesi</title>
 
 <meta name="description"
-      content="Sencer Ağkıran'ın resmi kişisel web sitesi. Kişisel profil, dijital çalışmalar, projeler ve iletişim bilgileri.">
-
-<meta name="keywords"
-      content="Sencer Ağkıran, Sencer Agkiran, Sencer Ağkıran resmi web sitesi, Sencer Ağkıran kişisel web sitesi">
+      content="Sencer AĞKIRAN — kişisel çalışmalar, dijital projeler, profesyonel çalışmalar ve iletişim bilgileri.">
 
 <meta name="author"
-      content="Sencer Ağkıran">
+      content="Sencer AĞKIRAN">
 
 <meta name="robots"
       content="index, follow">
 
 <meta name="theme-color"
-      content="#07131f">
-
-<meta property="og:title"
-      content="Sencer Ağkıran | Kişisel Web Sitesi">
-
-<meta property="og:description"
-      content="Sencer Ağkıran'ın kişisel web sitesi.">
-
-<meta property="og:type"
-      content="website">
-
-
-<!-- GOOGLE / ARAMA MOTORLARI İÇİN YAPISAL BİLGİ -->
-
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "Person",
-  "name": "Sencer Ağkıran",
-  "url": "https://senceragkiran.github.io",
-  "email": "mailto:fsenceragkiran@gmail.com",
-  "image": "https://senceragkiran.github.io/profil.jpg"
-}
-</script>
-
+      content="#0b1118">
 
 <style>
 
-/* ==============================
+/* =====================================================
    TEMEL AYARLAR
-============================== */
+===================================================== */
+
+:root{
+    --bg:#0b1118;
+    --bg2:#101923;
+    --panel:#121d28;
+    --panel2:#162331;
+
+    --text:#f3f1eb;
+    --muted:#aeb6bf;
+
+    --gold:#c9a96e;
+    --gold-light:#dfc48d;
+
+    --line:rgba(201,169,110,.28);
+
+    --max:1180px;
+}
 
 *{
     margin:0;
@@ -65,1016 +54,1488 @@ html{
 }
 
 body{
-    background:#07131f;
-    color:#f4f0e8;
-    font-family:Georgia, "Times New Roman", serif;
+    background:var(--bg);
+    color:var(--text);
+
+    font-family:
+        Georgia,
+        "Times New Roman",
+        serif;
+
+    line-height:1.7;
+
     overflow-x:hidden;
 }
 
-
-/* ==============================
-   ARKA PLAN
-============================== */
-
-body::before{
-    content:"";
-    position:fixed;
-    inset:0;
-
-    background:
-        radial-gradient(
-            circle at 15% 20%,
-            rgba(198,163,91,.09),
-            transparent 30%
-        ),
-        radial-gradient(
-            circle at 85% 75%,
-            rgba(198,163,91,.07),
-            transparent 30%
-        );
-
-    pointer-events:none;
-    z-index:-2;
+a{
+    color:inherit;
+    text-decoration:none;
 }
 
-body::after{
-    content:"";
+img{
+    max-width:100%;
+    display:block;
+}
 
-    position:fixed;
-
-    width:650px;
-    height:650px;
-
-    border:1px solid rgba(198,163,91,.11);
-
-    border-radius:50%;
-
-    right:-300px;
-    top:15%;
-
-    pointer-events:none;
-    z-index:-1;
+button{
+    font:inherit;
 }
 
 
-/* ==============================
-   ÜST MENÜ
-============================== */
+/* =====================================================
+   GENEL
+===================================================== */
+
+.container{
+    width:min(
+        calc(100% - 40px),
+        var(--max)
+    );
+
+    margin:auto;
+}
+
+.gold{
+    color:var(--gold);
+}
+
+.upper{
+    text-transform:uppercase;
+    letter-spacing:.25em;
+}
+
+
+/* =====================================================
+   ÜST NAVİGASYON
+===================================================== */
 
 header{
-    position:sticky;
+    position:fixed;
     top:0;
-
+    left:0;
     width:100%;
 
-    padding:23px 7%;
+    z-index:1000;
 
-    background:rgba(7,19,31,.94);
+    background:rgba(11,17,24,.92);
 
-    border-bottom:1px solid
-    rgba(198,163,91,.42);
+    border-bottom:
+        1px solid
+        rgba(255,255,255,.08);
 
-    backdrop-filter:blur(12px);
-
-    z-index:100;
+    backdrop-filter:blur(14px);
 }
 
-.header-inner{
-    max-width:1250px;
-    margin:auto;
+.nav{
+    min-height:82px;
 
     display:flex;
-    justify-content:space-between;
     align-items:center;
-}
+    justify-content:space-between;
 
-.logo{
-    color:#fff;
-
-    font-size:22px;
-    font-weight:bold;
-
-    letter-spacing:4px;
-}
-
-.logo small{
-    display:block;
-
-    margin-top:7px;
-
-    color:#c6a35b;
-
-    font-size:9px;
-
-    letter-spacing:5px;
-
-    font-weight:normal;
-}
-
-
-/* MENÜ */
-
-nav{
-    display:flex;
     gap:30px;
 }
 
-nav a{
-    color:#c8c8c4;
-
-    text-decoration:none;
-
-    font-size:11px;
-
-    letter-spacing:2px;
-
-    transition:.3s;
-}
-
-nav a:hover{
-    color:#c6a35b;
-}
-
-
-/* ==============================
-   HERO
-============================== */
-
-.hero{
-    min-height:calc(100vh - 90px);
-
+.logo{
     display:flex;
-
     flex-direction:column;
+}
 
-    justify-content:center;
+.logo-name{
+    font-size:22px;
+    font-weight:bold;
 
+    letter-spacing:.12em;
+
+    white-space:nowrap;
+}
+
+.logo-sub{
+    margin-top:2px;
+
+    font-family:
+        Arial,
+        sans-serif;
+
+    font-size:9px;
+
+    letter-spacing:.28em;
+
+    color:var(--gold);
+}
+
+.nav-links{
+    display:flex;
     align-items:center;
 
-    text-align:center;
+    gap:30px;
 
-    padding:70px 20px;
+    font-family:
+        Arial,
+        sans-serif;
 
-    position:relative;
+    font-size:12px;
+
+    letter-spacing:.14em;
+}
+
+.nav-links a{
+    color:#cdd2d7;
+
+    transition:.25s;
+}
+
+.nav-links a:hover{
+    color:var(--gold-light);
+}
+
+.nav-contact{
+    border:1px solid var(--line);
+
+    padding:9px 17px;
+
+    color:var(--gold) !important;
 }
 
 
-/* dekoratif çember */
+/* =====================================================
+   HERO
+===================================================== */
+
+.hero{
+    min-height:100vh;
+
+    padding-top:82px;
+
+    display:flex;
+    align-items:center;
+
+    position:relative;
+
+    overflow:hidden;
+}
 
 .hero::before{
     content:"";
 
     position:absolute;
 
-    width:min(650px,90vw);
-    height:min(650px,90vw);
+    width:650px;
+    height:650px;
 
-    border:1px solid
-    rgba(198,163,91,.11);
+    border:1px solid rgba(201,169,110,.08);
 
     border-radius:50%;
 
-    left:50%;
-    top:50%;
-
-    transform:translate(-50%,-50%);
-
-    pointer-events:none;
+    right:-300px;
+    top:90px;
 }
 
-
-/* küçük başlık */
-
-.kicker{
-    position:relative;
-    z-index:2;
-
-    color:#c6a35b;
-
-    font-size:12px;
-
-    letter-spacing:8px;
-
-    margin-bottom:30px;
-}
-
-
-/* ==============================
-   EL YAZISI
-============================== */
-
-.handwriting{
-    font-family:
-        "Segoe Print",
-        "Bradley Hand",
-        "Lucida Handwriting",
-        "Comic Sans MS",
-        cursive;
-
-    font-weight:400;
-}
-
-
-/* ==============================
-   ANA İSİM
-============================== */
-
-.hero-name{
-    position:relative;
-    z-index:2;
-
-    line-height:.85;
-}
-
-.hero-name .sencer{
-    display:block;
-
-    color:#f7f3eb;
-
-    font-size:
-        clamp(62px,14vw,125px);
-
-    letter-spacing:-3px;
-}
-
-.hero-name .agkiran{
-    display:block;
-
-    color:#c6a35b;
-
-    font-size:
-        clamp(55px,13vw,115px);
-
-    letter-spacing:-4px;
-
-    margin-top:13px;
-}
-
-
-/* ==============================
-   AÇIKLAMA
-============================== */
-
-.hero-description{
-    position:relative;
-    z-index:2;
-
-    max-width:680px;
-
-    margin:42px auto 22px;
-
-    color:#c6c8c7;
-
-    font-size:18px;
-
-    line-height:2;
-
-    letter-spacing:.3px;
-}
-
-.signature{
-    position:relative;
-    z-index:2;
-
-    color:#c6a35b;
-
-    font-size:25px;
-
-    margin-bottom:35px;
-}
-
-
-/* ==============================
-   BUTONLAR
-============================== */
-
-.buttons{
-    position:relative;
-    z-index:2;
-
-    display:flex;
-
-    justify-content:center;
-
-    gap:15px;
-
-    flex-wrap:wrap;
-}
-
-.btn{
-    display:inline-block;
-
-    padding:17px 34px;
-
-    text-decoration:none;
-
-    text-transform:uppercase;
-
-    letter-spacing:2.5px;
-
-    font-size:10px;
-
-    transition:.3s;
-}
-
-.btn-gold{
-    background:#c6a35b;
-
-    color:#07131f;
-}
-
-.btn-gold:hover{
-    background:#dfc17c;
-
-    transform:translateY(-3px);
-}
-
-.btn-outline{
-    border:1px solid
-    rgba(255,255,255,.32);
-
-    color:#fff;
-}
-
-.btn-outline:hover{
-    border-color:#c6a35b;
-
-    color:#c6a35b;
-
-    transform:translateY(-3px);
-}
-
-
-/* ==============================
-   PROFİL
-============================== */
-
-.profile{
-    max-width:1200px;
-
-    margin:auto;
-
-    padding:120px 7%;
-}
-
-.section-kicker{
-    color:#c6a35b;
-
-    font-size:11px;
-
-    letter-spacing:6px;
-
-    margin-bottom:17px;
-}
-
-.section-title{
-    color:#fff;
-
-    font-size:48px;
-
-    line-height:1.1;
-
-    margin-bottom:55px;
-}
-
-.profile-grid{
-    display:grid;
-
-    grid-template-columns:
-        minmax(0,1fr)
-        minmax(0,1fr);
-
-    gap:65px;
-
-    align-items:center;
-}
-
-
-/* FOTOĞRAF */
-
-.photo-box{
-    position:relative;
-
-    padding:14px;
-
-    border:1px solid
-    rgba(198,163,91,.55);
-
-    background:#0b1a27;
-}
-
-.photo-box::before{
+.hero::after{
     content:"";
 
     position:absolute;
 
-    inset:-7px;
+    width:450px;
+    height:450px;
 
-    border:1px solid
-    rgba(198,163,91,.13);
+    border:1px solid rgba(201,169,110,.05);
+
+    border-radius:50%;
+
+    left:-300px;
+    bottom:-200px;
+}
+
+.hero-grid{
+    position:relative;
+    z-index:2;
+
+    display:grid;
+
+    grid-template-columns:
+        1.05fr
+        .95fr;
+
+    gap:70px;
+
+    align-items:center;
+}
+
+.hero-label{
+    font-family:Arial,sans-serif;
+
+    color:var(--gold);
+
+    font-size:11px;
+
+    letter-spacing:.4em;
+
+    text-transform:uppercase;
+
+    margin-bottom:25px;
+}
+
+.hero h1{
+    font-size:
+        clamp(
+            55px,
+            8vw,
+            105px
+        );
+
+    line-height:.94;
+
+    font-weight:normal;
+
+    letter-spacing:-.04em;
+
+    margin-bottom:30px;
+}
+
+.hero h1 span{
+    display:block;
+
+    color:var(--gold);
+
+    font-style:italic;
+}
+
+.hero-description{
+    max-width:650px;
+
+    color:#c2c8cd;
+
+    font-size:18px;
+
+    line-height:1.9;
+
+    margin-bottom:38px;
+}
+
+.hero-buttons{
+    display:flex;
+
+    flex-wrap:wrap;
+
+    gap:14px;
+}
+
+.btn{
+    display:inline-flex;
+
+    align-items:center;
+    justify-content:center;
+
+    min-height:50px;
+
+    padding:
+        0 25px;
+
+    border:1px solid var(--line);
+
+    font-family:Arial,sans-serif;
+
+    font-size:11px;
+
+    letter-spacing:.18em;
+
+    text-transform:uppercase;
+
+    transition:.3s;
+}
+
+.btn-primary{
+    background:var(--gold);
+
+    color:#10151a;
+
+    border-color:var(--gold);
+}
+
+.btn-primary:hover{
+    background:var(--gold-light);
+}
+
+.btn-outline{
+    color:#e5e5e5;
+}
+
+.btn-outline:hover{
+    border-color:var(--gold);
+
+    color:var(--gold);
+}
+
+
+/* =====================================================
+   FOTOĞRAF
+===================================================== */
+
+.hero-photo{
+    position:relative;
+
+    max-width:480px;
+
+    margin-left:auto;
+}
+
+.photo-frame{
+    position:relative;
+
+    padding:12px;
+
+    border:
+        1px solid
+        rgba(201,169,110,.55);
+
+    background:
+        rgba(255,255,255,.02);
+}
+
+.photo-frame::before{
+    content:"";
+
+    position:absolute;
+
+    top:-10px;
+    left:-10px;
+
+    width:70px;
+    height:70px;
+
+    border-top:
+        1px solid
+        var(--gold);
+
+    border-left:
+        1px solid
+        var(--gold);
 
     pointer-events:none;
 }
 
-.photo-box img{
-    display:block;
+.photo-frame::after{
+    content:"";
 
+    position:absolute;
+
+    right:-10px;
+    bottom:-10px;
+
+    width:70px;
+    height:70px;
+
+    border-right:
+        1px solid
+        var(--gold);
+
+    border-bottom:
+        1px solid
+        var(--gold);
+
+    pointer-events:none;
+}
+
+.photo-frame img{
     width:100%;
 
-    height:auto;
+    aspect-ratio:4/5;
 
     object-fit:cover;
+
+    object-position:center;
+
+    filter:
+        saturate(.8)
+        contrast(1.03);
+}
+
+.photo-caption{
+    position:absolute;
+
+    left:35px;
+    bottom:30px;
+
+    background:
+        rgba(11,17,24,.9);
+
+    border-left:
+        2px solid
+        var(--gold);
+
+    padding:
+        10px 17px;
+
+    font-family:Arial,sans-serif;
+
+    font-size:10px;
+
+    letter-spacing:.2em;
+
+    text-transform:uppercase;
 }
 
 
-/* METİN */
+/* =====================================================
+   BÖLÜM GENEL
+===================================================== */
 
-.profile-text{
-    color:#c7cbca;
+section{
+    padding:120px 0;
+}
+
+.section-head{
+    max-width:750px;
+
+    margin-bottom:60px;
+}
+
+.section-label{
+    color:var(--gold);
+
+    font-family:Arial,sans-serif;
+
+    font-size:10px;
+
+    letter-spacing:.35em;
+
+    text-transform:uppercase;
+
+    margin-bottom:15px;
+}
+
+.section-title{
+    font-size:
+        clamp(
+            38px,
+            5vw,
+            60px
+        );
+
+    line-height:1.1;
+
+    font-weight:normal;
+
+    margin-bottom:20px;
+}
+
+.section-text{
+    color:var(--muted);
+
+    font-size:17px;
+
+    line-height:1.9;
+}
+
+
+/* =====================================================
+   HAKKINDA
+===================================================== */
+
+.about{
+    background:var(--bg2);
+
+    border-top:
+        1px solid
+        rgba(255,255,255,.04);
+
+    border-bottom:
+        1px solid
+        rgba(255,255,255,.04);
+}
+
+.about-grid{
+    display:grid;
+
+    grid-template-columns:
+        .8fr
+        1.2fr;
+
+    gap:90px;
+
+    align-items:start;
+}
+
+.about-number{
+    font-size:130px;
+
+    line-height:.8;
+
+    color:
+        rgba(201,169,110,.12);
+
+    font-weight:bold;
+}
+
+.about-content p{
+    color:#c0c7cd;
 
     font-size:17px;
 
     line-height:2;
+
+    margin-bottom:20px;
 }
 
-.profile-text strong{
-    color:#fff;
+.info-list{
+    margin-top:35px;
+
+    border-top:
+        1px solid
+        var(--line);
+}
+
+.info-item{
+    display:flex;
+
+    justify-content:space-between;
+
+    gap:30px;
+
+    padding:17px 0;
+
+    border-bottom:
+        1px solid
+        rgba(255,255,255,.07);
+
+    font-family:Arial,sans-serif;
+
+    font-size:12px;
+}
+
+.info-item span:first-child{
+    color:#7f8992;
+
+    letter-spacing:.12em;
+
+    text-transform:uppercase;
+}
+
+.info-item span:last-child{
+    color:#e4e6e8;
+
+    text-align:right;
 }
 
 
-/* ==============================
-   ÇALIŞMA ALANLARI
-============================== */
+/* =====================================================
+   ÇALIŞMALAR
+===================================================== */
 
-.areas{
-    background:#091824;
-
-    border-top:1px solid
-    rgba(198,163,91,.16);
-
-    border-bottom:1px solid
-    rgba(198,163,91,.16);
-
-    padding:110px 7%;
-}
-
-.areas-inner{
-    max-width:1150px;
-
-    margin:auto;
-}
-
-.cards{
+.work-grid{
     display:grid;
 
     grid-template-columns:
         repeat(3,1fr);
 
-    gap:22px;
-
-    margin-top:45px;
+    gap:20px;
 }
 
-.card{
-    padding:38px 28px;
+.work-card{
+    min-height:270px;
 
-    min-height:210px;
+    padding:35px 30px;
 
     background:
         linear-gradient(
             145deg,
-            rgba(255,255,255,.025),
-            rgba(255,255,255,.008)
+            #14212d,
+            #0f1821
         );
 
-    border:1px solid
-    rgba(198,163,91,.23);
+    border:
+        1px solid
+        rgba(255,255,255,.07);
 
-    transition:.35s;
+    position:relative;
+
+    transition:
+        transform .3s,
+        border-color .3s;
 }
 
-.card:hover{
-    transform:translateY(-7px);
+.work-card:hover{
+    transform:translateY(-6px);
 
-    border-color:#c6a35b;
+    border-color:
+        rgba(201,169,110,.4);
 }
 
-.card-number{
-    color:#c6a35b;
+.work-index{
+    color:var(--gold);
 
-    font-size:11px;
+    font-family:Arial,sans-serif;
 
-    letter-spacing:3px;
+    font-size:10px;
 
-    margin-bottom:30px;
+    letter-spacing:.2em;
 }
 
-.card h3{
-    color:#fff;
+.work-card h3{
+    margin-top:50px;
 
-    font-size:16px;
+    font-size:27px;
 
-    letter-spacing:2px;
-
-    margin-bottom:18px;
+    font-weight:normal;
 }
 
-.card p{
-    color:#aeb5b5;
+.work-card p{
+    margin-top:15px;
+
+    color:#929ba4;
+
+    font-size:14px;
 
     line-height:1.8;
+}
+
+.work-line{
+    position:absolute;
+
+    left:30px;
+    bottom:30px;
+
+    width:45px;
+    height:1px;
+
+    background:var(--gold);
+}
+
+
+/* =====================================================
+   VİZYON
+===================================================== */
+
+.statement{
+    position:relative;
+
+    text-align:center;
+
+    padding:
+        150px 20px;
+}
+
+.statement::before{
+    content:"";
+
+    position:absolute;
+
+    inset:25% 10%;
+
+    border-top:
+        1px solid
+        rgba(201,169,110,.15);
+
+    border-bottom:
+        1px solid
+        rgba(201,169,110,.15);
+}
+
+.statement-content{
+    position:relative;
+
+    z-index:2;
+
+    max-width:900px;
+
+    margin:auto;
+}
+
+.statement blockquote{
+    font-size:
+        clamp(
+            30px,
+            5vw,
+            55px
+        );
+
+    line-height:1.35;
+
+    font-style:italic;
+
+    font-weight:normal;
+}
+
+.statement cite{
+    display:block;
+
+    margin-top:30px;
+
+    color:var(--gold);
+
+    font-family:Arial,sans-serif;
+
+    font-size:10px;
+
+    letter-spacing:.3em;
+
+    font-style:normal;
+}
+
+
+/* =====================================================
+   İLETİŞİM
+===================================================== */
+
+.contact{
+    background:var(--bg2);
+}
+
+.contact-box{
+    display:grid;
+
+    grid-template-columns:
+        1fr
+        1fr;
+
+    border:
+        1px solid
+        rgba(201,169,110,.25);
+}
+
+.contact-left{
+    padding:55px;
+
+    border-right:
+        1px solid
+        rgba(255,255,255,.07);
+}
+
+.contact-right{
+    padding:55px;
+}
+
+.contact-left h2{
+    font-size:45px;
+
+    font-weight:normal;
+
+    margin-bottom:20px;
+}
+
+.contact-left p{
+    color:#9fa8b0;
+
+    max-width:500px;
+}
+
+.contact-detail{
+    margin-top:35px;
+
+    font-family:Arial,sans-serif;
+}
+
+.contact-detail small{
+    display:block;
+
+    color:#737e88;
+
+    font-size:9px;
+
+    letter-spacing:.2em;
+
+    text-transform:uppercase;
+
+    margin-bottom:5px;
+}
+
+.contact-detail a{
+    color:var(--gold-light);
 
     font-size:15px;
 }
 
+.contact-right-title{
+    color:var(--gold);
 
-/* ==============================
-   İLETİŞİM
-============================== */
+    font-family:Arial,sans-serif;
 
-.contact{
-    padding:130px 25px;
+    font-size:10px;
 
-    text-align:center;
-}
+    letter-spacing:.3em;
 
-.contact h2{
-    color:#fff;
-
-    font-size:
-        clamp(38px,8vw,65px);
+    text-transform:uppercase;
 
     margin-bottom:25px;
 }
 
-.contact p{
-    max-width:600px;
-
-    margin:0 auto 38px;
-
-    color:#aeb5b5;
+.contact-right p{
+    color:#adb5bc;
 
     line-height:1.9;
-
-    font-size:16px;
 }
 
 
-/* ==============================
-   E-POSTA
-============================== */
-
-.email{
-    display:block;
-
-    margin-top:25px;
-
-    color:#c6a35b;
-
-    text-decoration:none;
-
-    font-family:
-        "Segoe Print",
-        "Bradley Hand",
-        cursive;
-
-    font-size:21px;
-
-    transition:.3s;
-}
-
-.email:hover{
-    color:#ead08e;
-}
-
-
-/* ==============================
+/* =====================================================
    FOOTER
-============================== */
+===================================================== */
 
 footer{
-    padding:35px 20px;
+    padding:35px 0;
 
-    text-align:center;
+    border-top:
+        1px solid
+        rgba(255,255,255,.07);
 
-    border-top:1px solid
-    rgba(198,163,91,.22);
+    background:#080d13;
+}
 
-    color:#707879;
+.footer-inner{
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    gap:20px;
+}
+
+.footer-name{
+    font-size:17px;
+
+    letter-spacing:.08em;
+}
+
+.footer-copy{
+    color:#65707a;
+
+    font-family:Arial,sans-serif;
 
     font-size:10px;
 
-    letter-spacing:2px;
+    letter-spacing:.08em;
 }
 
 
-/* ==============================
+/* =====================================================
    MOBİL
-============================== */
+===================================================== */
 
-@media(max-width:800px){
+@media(max-width:850px){
 
-    header{
-        padding:20px;
+    .container{
+        width:
+            min(
+                calc(100% - 30px),
+                var(--max)
+            );
     }
 
-    .header-inner{
-        justify-content:center;
+    .nav{
+        min-height:72px;
     }
 
-    nav{
+    .nav-links{
         display:none;
     }
 
-    .logo{
-        font-size:20px;
-    }
-
     .hero{
-        min-height:calc(100vh - 75px);
+        padding-top:72px;
 
-        padding:
-            60px 20px
-            70px;
+        padding-bottom:80px;
     }
 
-    .kicker{
-        font-size:9px;
+    .hero-grid{
+        grid-template-columns:1fr;
 
-        letter-spacing:5px;
-
-        margin-bottom:27px;
+        gap:55px;
     }
 
-    .hero-name .sencer{
-        font-size:62px;
-    }
-
-    .hero-name .agkiran{
-        font-size:56px;
-
-        margin-top:14px;
+    .hero h1{
+        font-size:
+            clamp(
+                52px,
+                16vw,
+                85px
+            );
     }
 
     .hero-description{
-        font-size:15px;
-
-        line-height:1.9;
-
-        margin-top:35px;
+        font-size:16px;
     }
 
-    .signature{
-        font-size:21px;
+    .hero-photo{
+        width:100%;
+
+        max-width:420px;
+
+        margin:auto;
     }
 
-    .profile{
-        padding:
-            85px 22px;
+    section{
+        padding:85px 0;
     }
 
-    .section-title{
-        font-size:38px;
-
-        margin-bottom:40px;
-    }
-
-    .profile-grid{
+    .about-grid{
         grid-template-columns:1fr;
 
-        gap:40px;
+        gap:35px;
     }
 
-    .profile-text{
-        font-size:15px;
-
-        line-height:1.9;
+    .about-number{
+        font-size:90px;
     }
 
-    .areas{
-        padding:
-            85px 22px;
-    }
-
-    .cards{
+    .work-grid{
         grid-template-columns:1fr;
-
-        gap:17px;
     }
 
-    .card{
-        min-height:auto;
+    .contact-box{
+        grid-template-columns:1fr;
     }
 
-    .contact{
-        padding:
-            95px 22px;
+    .contact-left{
+        border-right:0;
+
+        border-bottom:
+            1px solid
+            rgba(255,255,255,.07);
     }
 
+    .contact-left,
+    .contact-right{
+        padding:35px 25px;
+    }
+
+    .contact-left h2{
+        font-size:37px;
+    }
+
+    .footer-inner{
+        flex-direction:column;
+
+        align-items:flex-start;
+    }
 }
 
+@media(max-width:480px){
 
-/* ==============================
-   ÇOK KÜÇÜK TELEFONLAR
-============================== */
-
-@media(max-width:390px){
-
-    .hero-name .sencer{
-        font-size:52px;
+    .logo-name{
+        font-size:18px;
     }
 
-    .hero-name .agkiran{
-        font-size:47px;
+    .hero-label{
+        font-size:9px;
+
+        letter-spacing:.28em;
     }
 
     .hero-description{
-        font-size:14px;
+        font-size:15px;
+
+        line-height:1.8;
     }
 
     .btn{
         width:100%;
     }
 
+    .photo-caption{
+        left:20px;
+        bottom:20px;
+    }
+
+    .section-title{
+        font-size:39px;
+    }
+
+    .statement{
+        padding:110px 15px;
+    }
+
+    .statement blockquote{
+        font-size:29px;
+    }
+
 }
 
 </style>
-
 </head>
 
 
 <body>
 
 
-<!-- ==========================
-     HEADER
-========================== -->
+<!-- ===================================================
+     NAVİGASYON
+=================================================== -->
 
 <header>
 
-<div class="header-inner">
+<nav class="nav container">
 
-    <div class="logo">
+    <a href="#anasayfa" class="logo">
 
-        SENCER AĞKIRAN
+        <span class="logo-name">
+            SENCER AĞKIRAN
+        </span>
 
-        <small>
+        <span class="logo-sub">
             KİŞİSEL WEB SİTESİ
-        </small>
+        </span>
 
-    </div>
+    </a>
 
 
-    <nav>
+    <div class="nav-links">
 
         <a href="#anasayfa">
-            ANASAYFA
+            ANA SAYFA
         </a>
 
-        <a href="#profil">
-            PROFİL
+        <a href="#hakkinda">
+            HAKKINDA
         </a>
 
-        <a href="#alanlar">
+        <a href="#calismalar">
             ÇALIŞMALAR
         </a>
 
-        <a href="#iletisim">
+        <a href="#vizyon">
+            VİZYON
+        </a>
+
+        <a
+            href="#iletisim"
+            class="nav-contact"
+        >
             İLETİŞİM
         </a>
 
-    </nav>
+    </div>
 
-</div>
+</nav>
 
 </header>
 
 
 
-<!-- ==========================
-     ANASAYFA
-========================== -->
+<!-- ===================================================
+     ANA SAYFA
+=================================================== -->
 
 <main id="anasayfa">
 
 <section class="hero">
 
-
-    <div class="kicker">
-        KİŞİSEL PROFİL
-    </div>
+<div class="container hero-grid">
 
 
-    <h1 class="hero-name handwriting">
+    <div>
 
-        <span class="sencer">
+        <div class="hero-label">
+            Resmî Kişisel Web Sitesi
+        </div>
+
+
+        <h1>
+
             Sencer
-        </span>
 
-        <span class="agkiran">
-            AĞKIRAN
-        </span>
+            <span>
+                AĞKIRAN
+            </span>
 
-    </h1>
-
-
-    <p class="hero-description">
-
-        Dijital çalışmalar, kişisel projeler,
-        teknoloji ve gelişim odaklı çalışmaların
-        yer aldığı kişisel web sitesi.
-
-    </p>
+        </h1>
 
 
-    <div class="signature handwriting">
-        Sencer Ağkıran
-    </div>
+        <p class="hero-description">
+
+            Dijital projeler, kişisel çalışmalar
+            ve profesyonel gelişim alanındaki
+            çalışmaların yer aldığı kişisel
+            web sitesi.
+
+        </p>
 
 
-    <div class="buttons">
+        <div class="hero-buttons">
 
-        <a
-            href="#profil"
-            class="btn btn-gold">
+            <a
+                href="#hakkinda"
+                class="btn btn-primary"
+            >
+                PROFİLİ İNCELE
+            </a>
 
-            Profili İncele
 
-        </a>
+            <a
+                href="#iletisim"
+                class="btn btn-outline"
+            >
+                İLETİŞİME GEÇ
+            </a>
 
-
-        <a
-            href="#iletisim"
-            class="btn btn-outline">
-
-            İletişim
-
-        </a>
+        </div>
 
     </div>
 
+
+
+    <!-- FOTOĞRAF -->
+
+    <div class="hero-photo">
+
+        <div class="photo-frame">
+
+            <img
+                src="profil.jpg"
+                alt="Sencer AĞKIRAN"
+            >
+
+        </div>
+
+
+        <div class="photo-caption">
+
+            SENCER AĞKIRAN
+
+        </div>
+
+    </div>
+
+
+</div>
 
 </section>
 
 
 
-<!-- ==========================
-     PROFİL
-========================== -->
+<!-- ===================================================
+     HAKKINDA
+=================================================== -->
 
 <section
-    class="profile"
-    id="profil">
+    id="hakkinda"
+    class="about"
+>
 
+<div class="container">
 
-    <div class="section-kicker">
-        PROFİL
+    <div class="section-head">
+
+        <div class="section-label">
+            01 — Profil
+        </div>
+
+        <h2 class="section-title">
+            Hakkında
+        </h2>
+
+        <p class="section-text">
+
+            Kişisel çalışmaların, projelerin ve
+            profesyonel gelişim sürecinin
+            bir araya getirildiği alan.
+
+        </p>
+
     </div>
 
 
-    <h2 class="section-title handwriting">
-        Hakkımda
-    </h2>
+    <div class="about-grid">
 
 
-    <div class="profile-grid">
+        <div>
 
-
-        <div class="photo-box">
-
-            <img
-                src="profil.jpg"
-                alt="Sencer Ağkıran"
-                loading="lazy">
+            <div class="about-number">
+                01
+            </div>
 
         </div>
 
 
-        <div class="profile-text">
+        <div class="about-content">
 
             <p>
 
-                Merhaba, ben
-                <strong>Sencer Ağkıran.</strong>
+                Ben Sencer AĞKIRAN.
+                Dijital dünya, teknoloji,
+                yazılım ve kişisel projeler
+                üzerine çalışmalar
+                gerçekleştiriyorum.
 
             </p>
 
 
-            <br>
-
-
             <p>
 
-                Teknoloji, dijital projeler ve
-                yeni fikirler geliştirme alanlarına
-                ilgi duyuyorum.
-
-            </p>
-
-
-            <br>
-
-
-            <p>
-
-                Bu kişisel web sitesi; çalışmalarımı,
-                projelerimi ve kendim hakkında
-                paylaşmak istediğim bilgileri
-                sade ve profesyonel bir şekilde
+                Bu web sitesi; çalışmalarımı,
+                projelerimi ve zaman içerisinde
+                oluşturduğum dijital işleri
+                tek bir çatı altında
                 sunmak amacıyla hazırlanmıştır.
 
             </p>
 
+
+            <div class="info-list">
+
+                <div class="info-item">
+
+                    <span>
+                        İsim
+                    </span>
+
+                    <span>
+                        Sencer AĞKIRAN
+                    </span>
+
+                </div>
+
+
+                <div class="info-item">
+
+                    <span>
+                        Alan
+                    </span>
+
+                    <span>
+                        Dijital Projeler & Teknoloji
+                    </span>
+
+                </div>
+
+
+                <div class="info-item">
+
+                    <span>
+                        Web
+                    </span>
+
+                    <span>
+                        senceragkiran.github.io
+                    </span>
+
+                </div>
+
+            </div>
+
         </div>
 
-
     </div>
+
+</div>
 
 </section>
 
 
 
-<!-- ==========================
+<!-- ===================================================
      ÇALIŞMALAR
-========================== -->
+=================================================== -->
 
-<section
-    class="areas"
-    id="alanlar">
+<section id="calismalar">
 
+<div class="container">
 
-<div class="areas-inner">
+    <div class="section-head">
 
+        <div class="section-label">
+            02 — Çalışmalar
+        </div>
 
-    <div class="section-kicker">
-        ÇALIŞMA ALANLARI
+        <h2 class="section-title">
+            Çalışmalar & Projeler
+        </h2>
+
+        <p class="section-text">
+
+            Dijital üretim, yazılım ve
+            kişisel projelerden oluşan
+            çalışma alanları.
+
+        </p>
+
     </div>
 
 
-    <h2 class="section-title handwriting">
-        İlgi Alanlarım
-    </h2>
+    <div class="work-grid">
 
 
-    <div class="cards">
+        <article class="work-card">
 
-
-        <div class="card">
-
-            <div class="card-number">
-                01
+            <div class="work-index">
+                01 / DIGITAL
             </div>
 
             <h3>
-                DİJİTAL PROJELER
+                Dijital Projeler
             </h3>
 
             <p>
 
-                Web projeleri, dijital fikirler
-                ve kullanıcı odaklı çalışmalar.
+                Web tabanlı uygulamalar,
+                dijital fikirler ve
+                kullanıcı odaklı projeler.
 
             </p>
+
+            <div class="work-line"></div>
+
+        </article>
+
+
+
+        <article class="work-card">
+
+            <div class="work-index">
+                02 / SOFTWARE
+            </div>
+
+            <h3>
+                Yazılım
+            </h3>
+
+            <p>
+
+                Modern web teknolojileri
+                ve farklı kullanım alanlarına
+                yönelik yazılım çalışmaları.
+
+            </p>
+
+            <div class="work-line"></div>
+
+        </article>
+
+
+
+        <article class="work-card">
+
+            <div class="work-index">
+                03 / CREATIVE
+            </div>
+
+            <h3>
+                Tasarım & Üretim
+            </h3>
+
+            <p>
+
+                Dijital tasarım, fikir geliştirme
+                ve özgün proje konseptleri.
+
+            </p>
+
+            <div class="work-line"></div>
+
+        </article>
+
+
+    </div>
+
+</div>
+
+</section>
+
+
+
+<!-- ===================================================
+     VİZYON
+=================================================== -->
+
+<section
+    id="vizyon"
+    class="statement"
+>
+
+<div class="statement-content">
+
+    <div class="section-label">
+        03 — Vizyon
+    </div>
+
+    <blockquote>
+
+        “Fikirleri yalnızca düşünmek değil,
+        onları gerçek dünyada çalışan
+        projelere dönüştürmek.”
+
+    </blockquote>
+
+
+    <cite>
+        SENCER AĞKIRAN
+    </cite>
+
+</div>
+
+</section>
+
+
+
+<!-- ===================================================
+     İLETİŞİM
+=================================================== -->
+
+<section
+    id="iletisim"
+    class="contact"
+>
+
+<div class="container">
+
+
+    <div class="contact-box">
+
+
+        <div class="contact-left">
+
+            <div class="section-label">
+                04 — İletişim
+            </div>
+
+            <h2>
+                İletişime Geçin
+            </h2>
+
+            <p>
+
+                Profesyonel iletişim,
+                proje fikirleri ve
+                diğer konular için
+                aşağıdaki iletişim adresini
+                kullanabilirsiniz.
+
+            </p>
+
+
+            <div class="contact-detail">
+
+                <small>
+                    E-posta
+                </small>
+
+                <a href="mailto:fsenceragkiran@gmail.com">
+
+                    fsenceragkiran@gmail.com
+
+                </a>
+
+            </div>
 
         </div>
 
 
 
-        <div class="card">
+        <div class="contact-right">
 
-            <div class="card-number">
-                02
+            <div class="contact-right-title">
+
+                Resmî İletişim
+
             </div>
 
-            <h3>
-                TEKNOLOJİ
-            </h3>
 
             <p>
 
-                Yazılım, internet teknolojileri
-                ve modern dijital çözümler.
-
-            </p>
-
-        </div>
-
-
-
-        <div class="card">
-
-            <div class="card-number">
-                03
-            </div>
-
-            <h3>
-                GELİŞİM
-            </h3>
-
-            <p>
-
-                Öğrenme, araştırma,
-                üretme ve sürekli gelişim.
+                Bu alan ilerleyen aşamalarda
+                sosyal medya hesapları,
+                profesyonel bağlantılar ve
+                diğer iletişim kanallarıyla
+                genişletilebilir.
 
             </p>
 
@@ -1087,70 +1548,33 @@ footer{
 
 </section>
 
-
-
-<!-- ==========================
-     İLETİŞİM
-========================== -->
-
-<section
-    class="contact"
-    id="iletisim">
-
-
-    <div class="section-kicker">
-        İLETİŞİM
-    </div>
-
-
-    <h2 class="handwriting">
-        Benimle İletişime Geçin
-    </h2>
-
-
-    <p>
-
-        Profesyonel iletişim,
-        projeler veya diğer konular
-        için benimle iletişime geçebilirsiniz.
-
-    </p>
-
-
-    <a
-        href="mailto:fsenceragkiran@gmail.com"
-        class="btn btn-gold">
-
-        E-POSTA GÖNDER
-
-    </a>
-
-
-    <a
-        href="mailto:fsenceragkiran@gmail.com"
-        class="email">
-
-        fsenceragkiran@gmail.com
-
-    </a>
-
-
-</section>
-
-
 </main>
 
 
 
-<!-- ==========================
+<!-- ===================================================
      FOOTER
-========================== -->
+=================================================== -->
 
 <footer>
 
-    © 2026 Sencer Ağkıran
-    ·
-    Tüm hakları saklıdır.
+<div class="container footer-inner">
+
+    <div class="footer-name">
+
+        SENCER <span class="gold">AĞKIRAN</span>
+
+    </div>
+
+
+    <div class="footer-copy">
+
+        © 2026 Sencer AĞKIRAN.
+        Tüm hakları saklıdır.
+
+    </div>
+
+</div>
 
 </footer>
 
