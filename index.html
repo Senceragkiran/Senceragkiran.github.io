@@ -10,6 +10,7 @@
 <meta name="author" content="Sencer AĞKIRAN">
 
 <style>
+
 *{
     margin:0;
     padding:0;
@@ -21,10 +22,14 @@ html{
 }
 
 body{
-    font-family:Arial, Helvetica, sans-serif;
+    font-family:Arial,Helvetica,sans-serif;
     background:#0b0c0d;
     color:#e9e7e1;
     line-height:1.7;
+}
+
+body.modal-open{
+    overflow:hidden;
 }
 
 a{
@@ -38,7 +43,7 @@ a{
 }
 
 /* =========================
-   ÜST MENÜ
+   HEADER
 ========================= */
 
 header{
@@ -76,12 +81,12 @@ header{
 
 nav{
     display:flex;
-    gap:28px;
+    gap:24px;
 }
 
 nav a{
-    font-size:12px;
-    letter-spacing:1.2px;
+    font-size:11px;
+    letter-spacing:1.1px;
     text-transform:uppercase;
     color:#aaa9a4;
     transition:.3s;
@@ -115,7 +120,7 @@ section{
 }
 
 .section-title{
-    font-family:Georgia, "Times New Roman", serif;
+    font-family:Georgia,"Times New Roman",serif;
     font-size:42px;
     line-height:1.15;
     font-weight:400;
@@ -148,7 +153,11 @@ section{
     width:600px;
     height:600px;
     border-radius:50%;
-    background:radial-gradient(circle,rgba(184,154,98,.09),transparent 68%);
+    background:radial-gradient(
+        circle,
+        rgba(184,154,98,.09),
+        transparent 68%
+    );
     top:5%;
     right:-200px;
     pointer-events:none;
@@ -170,7 +179,7 @@ section{
 }
 
 .hero h1{
-    font-family:Georgia, "Times New Roman", serif;
+    font-family:Georgia,"Times New Roman",serif;
     font-weight:400;
     font-size:clamp(54px,8vw,100px);
     line-height:.95;
@@ -240,29 +249,6 @@ section{
 }
 
 /* =========================
-   BİYOGRAFİ
-========================= */
-
-.bio-grid{
-    display:grid;
-    grid-template-columns:.7fr 1.3fr;
-    gap:70px;
-}
-
-.bio-intro{
-    font-family:Georgia, "Times New Roman", serif;
-    font-size:25px;
-    line-height:1.5;
-    color:#e5e1d9;
-}
-
-.bio-content p{
-    margin-bottom:22px;
-    color:#aaa9a4;
-    font-size:15px;
-}
-
-/* =========================
    BİLGİ KARTLARI
 ========================= */
 
@@ -297,7 +283,30 @@ section{
 }
 
 /* =========================
-   ZAMAN ÇİZELGESİ
+   BİYOGRAFİ
+========================= */
+
+.bio-grid{
+    display:grid;
+    grid-template-columns:.7fr 1.3fr;
+    gap:70px;
+}
+
+.bio-intro{
+    font-family:Georgia,"Times New Roman",serif;
+    font-size:25px;
+    line-height:1.5;
+    color:#e5e1d9;
+}
+
+.bio-content p{
+    margin-bottom:22px;
+    color:#aaa9a4;
+    font-size:15px;
+}
+
+/* =========================
+   TIMELINE
 ========================= */
 
 .timeline{
@@ -345,7 +354,7 @@ section{
 }
 
 /* =========================
-   İKİLİ BÖLÜM
+   SPLIT
 ========================= */
 
 .split{
@@ -360,7 +369,7 @@ section{
 }
 
 .box h3{
-    font-family:Georgia, "Times New Roman", serif;
+    font-family:Georgia,"Times New Roman",serif;
     font-weight:400;
     font-size:27px;
     color:#eeeae2;
@@ -396,7 +405,7 @@ section{
 }
 
 .principle h3{
-    font-family:Georgia, "Times New Roman", serif;
+    font-family:Georgia,"Times New Roman",serif;
     font-weight:400;
     font-size:25px;
     margin-bottom:12px;
@@ -429,7 +438,7 @@ section{
 
 .vision-text{
     max-width:900px;
-    font-family:Georgia, "Times New Roman", serif;
+    font-family:Georgia,"Times New Roman",serif;
     font-size:34px;
     line-height:1.45;
     color:#e9e5dc;
@@ -459,6 +468,104 @@ section{
 
 .family p:last-child{
     margin-bottom:0;
+}
+
+/* =========================
+   GALERİ
+========================= */
+
+.media-intro{
+    max-width:760px;
+    color:#999893;
+    font-size:15px;
+    margin-bottom:45px;
+}
+
+.gallery{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:14px;
+}
+
+.gallery-item{
+    position:relative;
+    aspect-ratio:4/3;
+    overflow:hidden;
+    background:#111;
+    border:1px solid rgba(255,255,255,.08);
+    cursor:pointer;
+}
+
+.gallery-item img{
+    width:100%;
+    height:100%;
+    object-fit:cover;
+    display:block;
+    filter:grayscale(8%);
+    transition:
+        transform .6s ease,
+        filter .6s ease;
+}
+
+.gallery-item:hover img{
+    transform:scale(1.06);
+    filter:grayscale(0%);
+}
+
+.gallery-item:after{
+    content:"";
+    position:absolute;
+    inset:0;
+    background:linear-gradient(
+        to top,
+        rgba(0,0,0,.4),
+        transparent 50%
+    );
+    pointer-events:none;
+}
+
+/* =========================
+   FOTOĞRAF MODAL
+========================= */
+
+.lightbox{
+    position:fixed;
+    inset:0;
+    z-index:3000;
+    background:rgba(5,6,7,.97);
+    display:none;
+    align-items:center;
+    justify-content:center;
+    padding:25px;
+}
+
+.lightbox.active{
+    display:flex;
+}
+
+.lightbox img{
+    max-width:95vw;
+    max-height:90vh;
+    object-fit:contain;
+    border:1px solid rgba(184,154,98,.45);
+    box-shadow:0 20px 80px rgba(0,0,0,.8);
+}
+
+.lightbox-close{
+    position:absolute;
+    top:22px;
+    right:25px;
+    width:48px;
+    height:48px;
+    border:1px solid rgba(184,154,98,.5);
+    background:#101112;
+    color:#e9e7e1;
+    font-size:27px;
+    cursor:pointer;
+}
+
+.lightbox-close:hover{
+    color:#b89a62;
 }
 
 /* =========================
@@ -615,6 +722,20 @@ footer{
         flex-direction:column;
         align-items:flex-start;
     }
+
+    .gallery{
+        grid-template-columns:repeat(2,1fr);
+        gap:9px;
+    }
+
+    .lightbox{
+        padding:15px;
+    }
+
+    .lightbox img{
+        max-width:96vw;
+        max-height:85vh;
+    }
 }
 
 @media(max-width:420px){
@@ -635,7 +756,12 @@ footer{
     .vision-text{
         font-size:24px;
     }
+
+    .gallery{
+        gap:7px;
+    }
 }
+
 </style>
 </head>
 
@@ -646,117 +772,124 @@ footer{
 ========================= -->
 
 <header>
-    <div class="nav">
 
-        <a href="#anasayfa" class="logo">
-            SENCER <span>AĞKIRAN</span>
-        </a>
+<div class="nav">
 
-        <nav>
-            <a href="#biyografi">Biyografi</a>
-            <a href="#egitim">Eğitim</a>
-            <a href="#teknoloji">Teknoloji</a>
-            <a href="#dusunce">Düşünce</a>
-            <a href="#vizyon">Vizyon</a>
-            <a href="#iletisim">İletişim</a>
-        </nav>
+<a href="#anasayfa" class="logo">
+SENCER <span>AĞKIRAN</span>
+</a>
 
-    </div>
+<nav>
+<a href="#biyografi">Biyografi</a>
+<a href="#egitim">Eğitim</a>
+<a href="#teknoloji">Teknoloji</a>
+<a href="#dusunce">Düşünce</a>
+<a href="#medya">Medya</a>
+<a href="#vizyon">Vizyon</a>
+<a href="#iletisim">İletişim</a>
+</nav>
+
+</div>
+
 </header>
 
 
-<!-- =========================
-     ANA SAYFA
-========================= -->
-
 <main>
+
+<!-- =========================
+     HERO
+========================= -->
 
 <section class="hero" id="anasayfa">
 
-    <div class="container">
+<div class="container">
 
-        <div class="hero-grid">
+<div class="hero-grid">
 
-            <div>
+<div>
 
-                <div class="kicker">
-                    Kişisel Profil / Ankara
-                </div>
+<div class="kicker">
+Kişisel Profil / Ankara
+</div>
 
-                <h1>
-                    Sencer
-                    <span>AĞKIRAN</span>
-                </h1>
+<h1>
+Sencer
+<span>AĞKIRAN</span>
+</h1>
 
-                <p class="hero-sub">
-                    Teknoloji, yazılım, eğitim, üretim ve kişisel gelişim
-                    ekseninde kendi yolunu oluşturan genç bir profil.
-                </p>
+<p class="hero-sub">
+Teknoloji, yazılım, eğitim, üretim ve kişisel gelişim
+ekseninde kendi yolunu oluşturan genç bir profil.
+</p>
 
-                <div class="hero-line"></div>
+<div class="hero-line"></div>
 
-            </div>
+</div>
 
-            <div class="hero-photo">
+<div class="hero-photo">
 
-                <div class="photo-frame">
-                    <img src="profil.jpg" alt="Sencer AĞKIRAN">
-                </div>
+<div class="photo-frame">
 
-            </div>
+<img src="profil.jpg" alt="Sencer AĞKIRAN">
 
-        </div>
+</div>
 
-    </div>
+</div>
+
+</div>
+
+</div>
 
 </section>
 
 
 <!-- =========================
-     KİŞİSEL BİLGİLER
+     PROFİL
 ========================= -->
 
 <section>
 
-    <div class="container">
+<div class="container">
 
-        <div class="section-label">Profil</div>
+<div class="section-label">
+Profil
+</div>
 
-        <div class="info-grid">
+<div class="info-grid">
 
-            <div class="info-card">
-                <small>Doğum</small>
-                <strong>6 Ekim 2009</strong>
-            </div>
+<div class="info-card">
+<small>Doğum</small>
+<strong>6 Ekim 2009</strong>
+</div>
 
-            <div class="info-card">
-                <small>Doğum Yeri</small>
-                <strong>Ankara / Altındağ</strong>
-            </div>
+<div class="info-card">
+<small>Doğum Yeri</small>
+<strong>Ankara / Altındağ</strong>
+</div>
 
-            <div class="info-card">
-                <small>Alan</small>
-                <strong>Teknoloji & Yazılım</strong>
-            </div>
+<div class="info-card">
+<small>Alan</small>
+<strong>Teknoloji & Yazılım</strong>
+</div>
 
-            <div class="info-card">
-                <small>Eğitim</small>
-                <strong>Gazi Mesleki Eğitim Merkezi</strong>
-            </div>
+<div class="info-card">
+<small>Eğitim</small>
+<strong>Gazi Mesleki Eğitim Merkezi</strong>
+</div>
 
-            <div class="info-card">
-                <small>Üniversite Hedefi</small>
-                <strong>ODTÜ</strong>
-            </div>
+<div class="info-card">
+<small>Üniversite Hedefi</small>
+<strong>ODTÜ</strong>
+</div>
 
-            <div class="info-card">
-                <small>Kariyer Hedefi</small>
-                <strong>Savunma Sanayii & İleri Teknoloji</strong>
-            </div>
+<div class="info-card">
+<small>Kariyer Hedefi</small>
+<strong>Savunma Sanayii & İleri Teknoloji</strong>
+</div>
 
-        </div>
+</div>
 
-    </div>
+</div>
 
 </section>
 
@@ -767,53 +900,55 @@ footer{
 
 <section id="biyografi">
 
-    <div class="container">
+<div class="container">
 
-        <div class="section-label">01 — Biyografi</div>
+<div class="section-label">
+01 — Biyografi
+</div>
 
-        <div class="section-title">
-            Kendi yolunu<br>
-            kendi çalışmalarıyla oluşturan bir profil.
-        </div>
+<div class="section-title">
+Kendi yolunu<br>
+kendi çalışmalarıyla oluşturan bir profil.
+</div>
 
-        <div class="bio-grid">
+<div class="bio-grid">
 
-            <div class="bio-intro">
-                Sencer AĞKIRAN, 6 Ekim 2009 tarihinde Ankara'nın Altındağ ilçesinde doğmuştur.
-            </div>
+<div class="bio-intro">
+Sencer AĞKIRAN, 6 Ekim 2009 tarihinde Ankara'nın Altındağ ilçesinde doğmuştur.
+</div>
 
-            <div class="bio-content">
+<div class="bio-content">
 
-                <p>
-                    Çocukluk yıllarından itibaren merak eden, araştıran,
-                    deneyen ve çevresindeki sistemlerin nasıl çalıştığını
-                    anlamaya çalışan bir karaktere sahip olmuştur.
-                </p>
+<p>
+Çocukluk yıllarından itibaren merak eden, araştıran,
+deneyen ve çevresindeki sistemlerin nasıl çalıştığını
+anlamaya çalışan bir karaktere sahip olmuştur.
+</p>
 
-                <p>
-                    Küçük yaşlarda deneysel çalışmalara ve teknolojiye
-                    duyduğu ilgi, ilerleyen yıllarda yazılım alanına
-                    yönelmesinin temelini oluşturmuştur.
-                </p>
+<p>
+Küçük yaşlarda deneysel çalışmalara ve teknolojiye
+duyduğu ilgi, ilerleyen yıllarda yazılım alanına
+yönelmesinin temelini oluşturmuştur.
+</p>
 
-                <p>
-                    Eğitim hayatı Ankara'da farklı eğitim kurumlarında
-                    devam eden AĞKIRAN, bugün eğitimini Gazi Mesleki
-                    Eğitim Merkezi'nde sürdürmektedir.
-                </p>
+<p>
+Eğitim hayatı Ankara'da farklı eğitim kurumlarında
+devam eden AĞKIRAN, bugün eğitimini Gazi Mesleki
+Eğitim Merkezi'nde sürdürmektedir.
+</p>
 
-                <p>
-                    Kendisini yalnızca bir meslek veya tek bir alan
-                    üzerinden tanımlamak yerine eğitim, teknoloji,
-                    üretim, sosyal çevre ve kişisel gelişimi bir bütün
-                    olarak ele almaktadır.
-                </p>
+<p>
+Kendisini yalnızca bir meslek veya tek bir alan
+üzerinden tanımlamak yerine eğitim, teknoloji,
+üretim, sosyal çevre ve kişisel gelişimi bir bütün
+olarak ele almaktadır.
+</p>
 
-            </div>
+</div>
 
-        </div>
+</div>
 
-    </div>
+</div>
 
 </section>
 
@@ -824,104 +959,112 @@ footer{
 
 <section id="egitim">
 
-    <div class="container">
+<div class="container">
 
-        <div class="section-label">02 — Eğitim</div>
+<div class="section-label">
+02 — Eğitim
+</div>
 
-        <div class="section-title">
-            Eğitim hayatı
-        </div>
+<div class="section-title">
+Eğitim hayatı
+</div>
 
-        <p class="section-text">
-            AĞKIRAN'ın eğitim hayatı Ankara'da farklı eğitim kurumlarında
-            devam etmiş ve zaman içerisinde teknolojiye olan ilgisiyle
-            birlikte şekillenmiştir.
-        </p>
+<p class="section-text">
+AĞKIRAN'ın eğitim hayatı Ankara'da farklı eğitim kurumlarında
+devam etmiş ve zaman içerisinde teknolojiye olan ilgisiyle
+birlikte şekillenmiştir.
+</p>
 
-        <div class="timeline">
+<div class="timeline">
 
-            <div class="timeline-item">
+<div class="timeline-item">
 
-                <div class="timeline-year">İLKOKUL</div>
+<div class="timeline-year">
+İLKOKUL
+</div>
 
-                <div class="timeline-title">
-                    Temel Eğitim Dönemi
-                </div>
+<div class="timeline-title">
+Temel Eğitim Dönemi
+</div>
 
-                <div class="timeline-text">
-                    Satı Öztürk İlkokulu, Hakan Akbıyık İlkokulu
-                    ve Azmi Ertuğrul İlkokulu.
-                </div>
+<div class="timeline-text">
+Satı Öztürk İlkokulu, Hakan Akbıyık İlkokulu
+ve Azmi Ertuğrul İlkokulu.
+</div>
 
-            </div>
+</div>
 
+<div class="timeline-item">
 
-            <div class="timeline-item">
+<div class="timeline-year">
+ORTAOKUL
+</div>
 
-                <div class="timeline-year">ORTAOKUL</div>
+<div class="timeline-title">
+Ortaöğretim Dönemi
+</div>
 
-                <div class="timeline-title">
-                    Ortaöğretim Dönemi
-                </div>
+<div class="timeline-text">
+Turgut Özal Ortaokulu, Şehit Ali İhsan Lezgi
+Ortaokulu ve Eğitim Bilimleri Koleji.
+</div>
 
-                <div class="timeline-text">
-                    Turgut Özal Ortaokulu, Şehit Ali İhsan Lezgi
-                    Ortaokulu ve Eğitim Bilimleri Koleji.
-                </div>
+</div>
 
-            </div>
+<div class="timeline-item">
 
+<div class="timeline-year">
+LİSE
+</div>
 
-            <div class="timeline-item">
+<div class="timeline-title">
+Hürriyet Anadolu Lisesi
+</div>
 
-                <div class="timeline-year">LİSE</div>
+<div class="timeline-text">
+Lise eğitimini Hürriyet Anadolu Lisesi'nde
+sürdürmüştür.
+</div>
 
-                <div class="timeline-title">
-                    Hürriyet Anadolu Lisesi
-                </div>
+</div>
 
-                <div class="timeline-text">
-                    Lise eğitimini Hürriyet Anadolu Lisesi'nde
-                    sürdürmüştür.
-                </div>
+<div class="timeline-item">
 
-            </div>
+<div class="timeline-year">
+GÜNÜMÜZ
+</div>
 
+<div class="timeline-title">
+Gazi Mesleki Eğitim Merkezi
+</div>
 
-            <div class="timeline-item">
+<div class="timeline-text">
+Eğitim hayatına Gazi Mesleki Eğitim Merkezi'nde
+devam etmektedir.
+</div>
 
-                <div class="timeline-year">GÜNÜMÜZ</div>
+</div>
 
-                <div class="timeline-title">
-                    Gazi Mesleki Eğitim Merkezi
-                </div>
+<div class="timeline-item">
 
-                <div class="timeline-text">
-                    Eğitim hayatına Gazi Mesleki Eğitim Merkezi'nde
-                    devam etmektedir.
-                </div>
+<div class="timeline-year">
+GELECEK HEDEFİ
+</div>
 
-            </div>
+<div class="timeline-title">
+ODTÜ
+</div>
 
+<div class="timeline-text">
+Uzun vadeli eğitim hedefleri arasında ODTÜ'de
+üniversite eğitimi almak bulunmaktadır.
+</div>
 
-            <div class="timeline-item">
+</div>
 
-                <div class="timeline-year">GELECEK HEDEFİ</div>
+</div>
 
-                <div class="timeline-title">
-                    ODTÜ
-                </div>
-
-                <div class="timeline-text">
-                    Uzun vadeli eğitim hedefleri arasında ODTÜ'de
-                    üniversite eğitimi almak bulunmaktadır.
-                </div>
-
-            </div>
-
-        </div>
-
-    </div>
+</div>
 
 </section>
 
@@ -932,71 +1075,58 @@ footer{
 
 <section id="teknoloji">
 
-    <div class="container">
+<div class="container">
 
-        <div class="section-label">03 — Teknoloji</div>
+<div class="section-label">
+03 — Teknoloji
+</div>
 
-        <div class="section-title">
-            Teknoloji ve yazılım
-        </div>
+<div class="section-title">
+Teknoloji ve yazılım
+</div>
 
-        <div class="split">
+<div class="split">
 
-            <div class="box">
+<div class="box">
+<h3>2020</h3>
+<p>
+Sencer AĞKIRAN'ın teknoloji ve yazılım alanındaki
+serüveni 2020 yılında başlamıştır.
+</p>
+</div>
 
-                <h3>2020</h3>
+<div class="box">
+<h3>Üretim anlayışı</h3>
+<p>
+Yazılımı yalnızca teknik bir beceri olarak değil,
+fikirleri ve düşünceleri somut çalışmalara
+dönüştürebileceği bir üretim alanı olarak
+değerlendirmektedir.
+</p>
+</div>
 
-                <p>
-                    Sencer AĞKIRAN'ın teknoloji ve yazılım alanındaki
-                    serüveni 2020 yılında başlamıştır.
-                </p>
+<div class="box">
+<h3>Gizlilik</h3>
+<p>
+Üzerinde çalıştığı bazı projeleri kamuoyuyla
+paylaşmamayı tercih etmektedir. Projelerin belirli
+bir olgunluğa ulaşmasını ve sonuçların kendisini
+anlatmasını önemsemektedir.
+</p>
+</div>
 
-            </div>
+<div class="box">
+<h3>Hedef</h3>
+<p>
+Teknoloji alanındaki temel motivasyonlarından biri,
+bilgi ve teknik yetkinliği insanlara ve ülkeye
+fayda sağlayabilecek çalışmalara dönüştürmektir.
+</p>
+</div>
 
+</div>
 
-            <div class="box">
-
-                <h3>Üretim anlayışı</h3>
-
-                <p>
-                    Yazılımı yalnızca teknik bir beceri olarak değil,
-                    fikirleri ve düşünceleri somut çalışmalara
-                    dönüştürebileceği bir üretim alanı olarak
-                    değerlendirmektedir.
-                </p>
-
-            </div>
-
-
-            <div class="box">
-
-                <h3>Gizlilik</h3>
-
-                <p>
-                    Üzerinde çalıştığı bazı projeleri kamuoyuyla
-                    paylaşmamayı tercih etmektedir. Projelerin belirli
-                    bir olgunluğa ulaşmasını ve sonuçların kendisini
-                    anlatmasını önemsemektedir.
-                </p>
-
-            </div>
-
-
-            <div class="box">
-
-                <h3>Hedef</h3>
-
-                <p>
-                    Teknoloji alanındaki temel motivasyonlarından biri,
-                    bilgi ve teknik yetkinliği insanlara ve ülkeye
-                    fayda sağlayabilecek çalışmalara dönüştürmektir.
-                </p>
-
-            </div>
-
-        </div>
-
-    </div>
+</div>
 
 </section>
 
@@ -1007,71 +1137,58 @@ footer{
 
 <section id="dusunce">
 
-    <div class="container">
+<div class="container">
 
-        <div class="section-label">04 — Düşünce Dünyası</div>
+<div class="section-label">
+04 — Düşünce Dünyası
+</div>
 
-        <div class="section-title">
-            Kimlik, tarih ve sorumluluk
-        </div>
+<div class="section-title">
+Kimlik, tarih ve sorumluluk
+</div>
 
-        <div class="split">
+<div class="split">
 
-            <div class="box">
+<div class="box">
+<h3>Türk kimliği</h3>
+<p>
+Sencer AĞKIRAN'ın kişisel kimliğinin merkezinde
+Türklük, Türk kimliği, Türkçülük, milliyetçilik
+ve tarih bilinci bulunmaktadır.
+</p>
+</div>
 
-                <h3>Türk kimliği</h3>
+<div class="box">
+<h3>Bağımsız duruş</h3>
+<p>
+Herhangi bir siyasi partiye mensup olmadığını
+belirtmekte ve kendisini herhangi bir siyasi
+partinin temsilcisi olarak konumlandırmamaktadır.
+</p>
+</div>
 
-                <p>
-                    Sencer AĞKIRAN'ın kişisel kimliğinin merkezinde
-                    Türklük, Türk kimliği, Türkçülük, milliyetçilik
-                    ve tarih bilinci bulunmaktadır.
-                </p>
+<div class="box">
+<h3>Sosyal çevre</h3>
+<p>
+Ülkücü çevreyle sosyal ve fikrî bağının bulunduğunu
+ifade etmektedir. Bu çevredeki ilişkilerini kişisel
+sosyal ve düşünsel gelişiminin bir parçası olarak
+değerlendirmektedir.
+</p>
+</div>
 
-            </div>
+<div class="box">
+<h3>Üretim ve sorumluluk</h3>
+<p>
+Eğitim, teknoloji, bilim ve üretimin ülkenin
+geleceğine katkı sağlayabilecek temel alanlar
+olduğunu düşünmektedir.
+</p>
+</div>
 
+</div>
 
-            <div class="box">
-
-                <h3>Bağımsız duruş</h3>
-
-                <p>
-                    Herhangi bir siyasi partiye mensup olmadığını
-                    belirtmekte ve kendisini herhangi bir siyasi
-                    partinin temsilcisi olarak konumlandırmamaktadır.
-                </p>
-
-            </div>
-
-
-            <div class="box">
-
-                <h3>Sosyal çevre</h3>
-
-                <p>
-                    Ülkücü çevreyle sosyal ve fikrî bağının bulunduğunu
-                    ifade etmektedir. Bu çevredeki ilişkilerini kişisel
-                    sosyal ve düşünsel gelişiminin bir parçası olarak
-                    değerlendirmektedir.
-                </p>
-
-            </div>
-
-
-            <div class="box">
-
-                <h3>Üretim ve sorumluluk</h3>
-
-                <p>
-                    Eğitim, teknoloji, bilim ve üretimin ülkenin
-                    geleceğine katkı sağlayabilecek temel alanlar
-                    olduğuna inanmaktadır.
-                </p>
-
-            </div>
-
-        </div>
-
-    </div>
+</div>
 
 </section>
 
@@ -1082,76 +1199,75 @@ footer{
 
 <section>
 
-    <div class="container">
+<div class="container">
 
-        <div class="section-label">05 — Kişisel İlkeler</div>
+<div class="section-label">
+05 — Kişisel İlkeler
+</div>
 
-        <div class="section-title">
-            Çalışma anlayışı
-        </div>
+<div class="section-title">
+Çalışma anlayışı
+</div>
 
-        <div class="principles">
+<div class="principles">
 
-            <div class="principle">
+<div class="principle">
 
-                <div class="principle-number">01</div>
+<div class="principle-number">01</div>
 
-                <h3>Disiplin</h3>
+<h3>Disiplin</h3>
 
-                <p>
-                    Üstlendiği işlerde ciddiyeti ve sorumluluk
-                    bilincini korumaya önem vermektedir.
-                </p>
+<p>
+Üstlendiği işlerde ciddiyeti ve sorumluluk
+bilincini korumaya önem vermektedir.
+</p>
 
-            </div>
+</div>
 
+<div class="principle">
 
-            <div class="principle">
+<div class="principle-number">02</div>
 
-                <div class="principle-number">02</div>
+<h3>Sadakat</h3>
 
-                <h3>Sadakat</h3>
+<p>
+Değer verdiği insanlara karşı bağlılığı ve
+güvene dayalı ilişkileri önemsemektedir.
+</p>
 
-                <p>
-                    Değer verdiği insanlara karşı bağlılığı ve
-                    güvene dayalı ilişkileri önemsemektedir.
-                </p>
+</div>
 
-            </div>
+<div class="principle">
 
+<div class="principle-number">03</div>
 
-            <div class="principle">
+<h3>İletişim</h3>
 
-                <div class="principle-number">03</div>
+<p>
+Farklı insanlarla iletişim kurabilme ve yeni
+ilişkiler geliştirebilme konusunda kendisini
+geliştirmeye önem vermektedir.
+</p>
 
-                <h3>İletişim</h3>
+</div>
 
-                <p>
-                    Farklı insanlarla iletişim kurabilme ve yeni
-                    ilişkiler geliştirebilme konusunda kendisini
-                    geliştirmeye önem vermektedir.
-                </p>
+<div class="principle">
 
-            </div>
+<div class="principle-number">04</div>
 
+<h3>Fayda</h3>
 
-            <div class="principle">
+<p>
+Başarıyı yalnızca tanınmak veya makam sahibi
+olmak üzerinden değil, ortaya konulan fayda
+üzerinden değerlendirmektedir.
+</p>
 
-                <div class="principle-number">04</div>
+</div>
 
-                <h3>Fayda</h3>
+</div>
 
-                <p>
-                    Başarıyı yalnızca tanınmak veya makam sahibi
-                    olmak üzerinden değil, ortaya konulan fayda
-                    üzerinden değerlendirmektedir.
-                </p>
-
-            </div>
-
-        </div>
-
-    </div>
+</div>
 
 </section>
 
@@ -1162,42 +1278,44 @@ footer{
 
 <section>
 
-    <div class="container">
+<div class="container">
 
-        <div class="section-label">06 — Aile ve İsim Hikâyesi</div>
+<div class="section-label">
+06 — Aile ve İsim Hikâyesi
+</div>
 
-        <div class="section-title">
-            Aile geçmişi
-        </div>
+<div class="section-title">
+Aile geçmişi
+</div>
 
-        <div class="family">
+<div class="family">
 
-            <p>
-                Sencer AĞKIRAN, Ümit AĞKIRAN'ın oğludur.
-            </p>
+<p>
+Sencer AĞKIRAN, Ümit AĞKIRAN'ın oğludur.
+</p>
 
-            <p>
-                Ümit AĞKIRAN, kamuya açık kaynaklarda Alp Ocakları
-                Genel Başkanı ve Kurucu Genel Başkan olarak
-                anılmaktadır.
-            </p>
+<p>
+Ümit AĞKIRAN, kamuya açık kaynaklarda Alp Ocakları
+Genel Başkanı ve Kurucu Genel Başkan olarak
+anılmaktadır.
+</p>
 
-            <p>
-                Sencer AĞKIRAN'ın isim hikâyesine ilişkin aile
-                anlatısına göre "Sencer" ismi Muhsin Yazıcıoğlu
-                tarafından verilmiştir.
-            </p>
+<p>
+Sencer AĞKIRAN'ın isim hikâyesine ilişkin aile
+anlatısına göre "Sencer" ismi Muhsin Yazıcıoğlu
+tarafından verilmiştir.
+</p>
 
-            <p>
-                AĞKIRAN'ın kendi kimliği ise ailesinden bağımsız
-                olarak eğitim hayatı, teknoloji çalışmaları,
-                sosyal ilişkileri, düşünce dünyası ve gelecek
-                hedefleri üzerinden şekillenmektedir.
-            </p>
+<p>
+AĞKIRAN'ın kendi kimliği ise ailesinden bağımsız
+olarak eğitim hayatı, teknoloji çalışmaları,
+sosyal ilişkileri, düşünce dünyası ve gelecek
+hedefleri üzerinden şekillenmektedir.
+</p>
 
-        </div>
+</div>
 
-    </div>
+</div>
 
 </section>
 
@@ -1208,107 +1326,276 @@ footer{
 
 <section class="vision" id="vizyon">
 
-    <div class="container">
+<div class="container">
 
-        <div class="section-label">07 — Gelecek Vizyonu</div>
+<div class="section-label">
+07 — Gelecek Vizyonu
+</div>
 
-        <div class="section-title">
-            Gelecek hedefleri
-        </div>
+<div class="section-title">
+Gelecek hedefleri
+</div>
 
-        <div class="vision-text">
-            Eğitim, teknoloji, üretim ve yüksek teknoloji alanlarında
-            kendisini geliştirerek savunma sanayii ve ileri teknoloji
-            alanında ülke çapında önemli çalışmalara imza atmak.
-        </div>
+<div class="vision-text">
+Eğitim, teknoloji, üretim ve yüksek teknoloji alanlarında
+kendisini geliştirerek savunma sanayii ve ileri teknoloji
+alanında ülke çapında önemli çalışmalara imza atmak.
+</div>
 
-        <p class="vision-sub">
-            Uzun vadeli hedefleri arasında ODTÜ'de üniversite eğitimi
-            almak ve teknik birikimini savunma sanayii alanındaki
-            çalışmalara taşımak bulunmaktadır.
-        </p>
+<p class="vision-sub">
+Uzun vadeli hedefleri arasında ODTÜ'de üniversite eğitimi
+almak ve teknik birikimini savunma sanayii alanındaki
+çalışmalara taşımak bulunmaktadır.
+</p>
 
-    </div>
-
-</section>
-
-
-<!-- =========================
-     BAŞARI ANLAYIŞI
-========================= -->
-
-<section>
-
-    <div class="container">
-
-        <div class="section-label">08 — Başarı Anlayışı</div>
-
-        <div class="section-title">
-            Şöhretten önce fayda.
-        </div>
-
-        <div class="bio-grid">
-
-            <div class="bio-intro">
-                Bir çalışmanın gerçek değerinin, ne kadar konuşulduğundan
-                önce ne kadar fayda ürettiğine bağlı olduğu düşünülmektedir.
-            </div>
-
-            <div class="bio-content">
-
-                <p>
-                    Sencer AĞKIRAN'ın başarı anlayışı şöhret, makam
-                    veya kişisel görünürlük üzerine kurulu değildir.
-                </p>
-
-                <p>
-                    Ortaya koyduğu bir çalışmanın tek bir insanın
-                    dahi rızasını ve memnuniyetini kazanabilmesi,
-                    onun açısından anlamlı bir başarı olarak
-                    değerlendirilmektedir.
-                </p>
-
-                <p>
-                    Bu yaklaşım, teknoloji ve üretim alanındaki
-                    gelecek hedeflerinin de temel noktalarından
-                    birini oluşturmaktadır.
-                </p>
-
-            </div>
-
-        </div>
-
-    </div>
+</div>
 
 </section>
 
 
 <!-- =========================
-     ZORLUKLAR
+     BAŞARI
 ========================= -->
 
 <section>
 
-    <div class="container">
+<div class="container">
 
-        <div class="section-label">09 — Duruş</div>
+<div class="section-label">
+08 — Başarı Anlayışı
+</div>
 
-        <div class="section-title">
-            Zorluklara karşı yaklaşım
-        </div>
+<div class="section-title">
+Şöhretten önce fayda.
+</div>
 
-        <div class="vision-text">
-            “Benim için imkânsız olan hiçbir şey yoktur.
-            Zor olan her şey yapılır; sadece zaman alır.”
-        </div>
+<div class="bio-grid">
 
-        <p class="vision-sub">
-            Bu yaklaşım, karşılaşılan güçlükleri bir son nokta olarak
-            değil, çözülmesi gereken problemler olarak ele alan bir
-            çalışma anlayışını ifade etmektedir.
-        </p>
+<div class="bio-intro">
+Bir çalışmanın gerçek değerinin, ne kadar konuşulduğundan
+önce ne kadar fayda ürettiğine bağlı olduğu düşünülmektedir.
+</div>
 
-    </div>
+<div class="bio-content">
+
+<p>
+Sencer AĞKIRAN'ın başarı anlayışı şöhret, makam
+veya kişisel görünürlük üzerine kurulu değildir.
+</p>
+
+<p>
+Ortaya koyduğu bir çalışmanın tek bir insanın
+dahi rızasını ve memnuniyetini kazanabilmesi,
+onun açısından anlamlı bir başarı olarak
+değerlendirilmektedir.
+</p>
+
+<p>
+Bu yaklaşım, teknoloji ve üretim alanındaki
+gelecek hedeflerinin de temel noktalarından
+birini oluşturmaktadır.
+</p>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- =========================
+     DURUŞ
+========================= -->
+
+<section>
+
+<div class="container">
+
+<div class="section-label">
+09 — Duruş
+</div>
+
+<div class="section-title">
+Zorluklara karşı yaklaşım
+</div>
+
+<div class="vision-text">
+“Benim için imkânsız olan hiçbir şey yoktur.
+Zor olan her şey yapılır; sadece zaman alır.”
+</div>
+
+<p class="vision-sub">
+Bu yaklaşım, karşılaşılan güçlükleri bir son nokta olarak
+değil, çözülmesi gereken problemler olarak ele alan bir
+çalışma anlayışını ifade etmektedir.
+</p>
+
+</div>
+
+</section>
+
+
+<!-- =========================
+     MEDYA
+========================= -->
+
+<section id="medya">
+
+<div class="container">
+
+<div class="section-label">
+10 — Medya
+</div>
+
+<div class="section-title">
+Fotoğraf arşivi
+</div>
+
+<p class="media-intro">
+Sencer AĞKIRAN'ın farklı dönemlerine ve sosyal çevresine
+ait görsel arşivden seçilmiş fotoğraflar.
+Fotoğrafların üzerine dokunularak büyük boyutta görüntülenebilir.
+</p>
+
+<div class="gallery">
+
+
+<div class="gallery-item">
+<img src="Screenshot_20260219-115438_Instagram~2.jpg"
+alt="Sencer AĞKIRAN">
+</div>
+
+<div class="gallery-item">
+<img src="Screenshot_20260219-115419_Instagram~2.jpg"
+alt="Sencer AĞKIRAN">
+</div>
+
+<div class="gallery-item">
+<img src="Screenshot_20260219-115356_Instagram~2.jpg"
+alt="Sencer AĞKIRAN">
+</div>
+
+<div class="gallery-item">
+<img src="Screenshot_20260219-115421_Instagram~2.jpg"
+alt="Sencer AĞKIRAN">
+</div>
+
+<div class="gallery-item">
+<img src="IMG_20260508_221402_514.jpg"
+alt="Sencer AĞKIRAN">
+</div>
+
+<div class="gallery-item">
+<img src="IMG_20260519_180422_023.jpg"
+alt="Sencer AĞKIRAN">
+</div>
+
+<div class="gallery-item">
+<img src="IMG_20260619_125118_989.jpg"
+alt="Sencer AĞKIRAN">
+</div>
+
+<div class="gallery-item">
+<img src="4828e226b475416cffdd771d32572a50.png"
+alt="Sencer AĞKIRAN">
+</div>
+
+<div class="gallery-item">
+<img src="file_0000000015808210a274176c4acba493~2.jpg"
+alt="Sencer AĞKIRAN">
+</div>
+
+<div class="gallery-item">
+<img src="IMG-20260921-WA0011.jpg"
+alt="Sencer AĞKIRAN">
+</div>
+
+<div class="gallery-item">
+<img src="IMG-20260923-WA0001.jpg"
+alt="Sencer AĞKIRAN">
+</div>
+
+<div class="gallery-item">
+<img src="IMG-20260918-WA0014~2.jpg"
+alt="Sencer AĞKIRAN">
+</div>
+
+<div class="gallery-item">
+<img src="IMG-20260909-WA0016.jpg"
+alt="Sencer AĞKIRAN">
+</div>
+
+<div class="gallery-item">
+<img src="3f38981f2453fa49906eaf63f6bf2cf2_0.webp"
+alt="Sencer AĞKIRAN">
+</div>
+
+<div class="gallery-item">
+<img src="Screenshot_20260830-223834.png"
+alt="Sencer AĞKIRAN">
+</div>
+
+<div class="gallery-item">
+<img src="Screenshot_20260830-204533~2.jpg"
+alt="Sencer AĞKIRAN">
+</div>
+
+<div class="gallery-item">
+<img src="IMG-20260821-WA0001.jpg"
+alt="Sencer AĞKIRAN">
+</div>
+
+<div class="gallery-item">
+<img src="IMG-20260820-WA0052.jpg"
+alt="Sencer AĞKIRAN">
+</div>
+
+<div class="gallery-item">
+<img src="IMG-20260808-WA0002.jpg"
+alt="Sencer AĞKIRAN">
+</div>
+
+<div class="gallery-item">
+<img src="Screenshot_20260713-130717.png"
+alt="Sencer AĞKIRAN">
+</div>
+
+<div class="gallery-item">
+<img src="Screenshot_20260713-131400.png"
+alt="Sencer AĞKIRAN">
+</div>
+
+<div class="gallery-item">
+<img src="Screenshot_20260713-131654.png"
+alt="Sencer AĞKIRAN">
+</div>
+
+<div class="gallery-item">
+<img src="Screenshot_20260713-130650.png"
+alt="Sencer AĞKIRAN">
+</div>
+
+<div class="gallery-item">
+<img src="Screenshot_20260709-123739~2.png"
+alt="Sencer AĞKIRAN">
+</div>
+
+<div class="gallery-item">
+<img src="Screenshot_20260709-161014~2.png"
+alt="Sencer AĞKIRAN">
+</div>
+
+<div class="gallery-item">
+<img src="IMG-20260619-WA0021~2.jpg"
+alt="Sencer AĞKIRAN">
+</div>
+
+
+</div>
+
+</div>
 
 </section>
 
@@ -1319,43 +1606,59 @@ footer{
 
 <section id="iletisim">
 
-    <div class="container">
+<div class="container">
 
-        <div class="section-label">10 — İletişim</div>
+<div class="section-label">
+11 — İletişim
+</div>
 
-        <div class="contact">
+<div class="contact">
 
-            <div>
+<div>
 
-                <div class="section-title">
-                    İletişim
-                </div>
+<div class="section-title">
+İletişim
+</div>
 
-                <p class="section-text">
-                    Profesyonel iletişim, proje ve çalışma konuları
-                    için aşağıdaki e-posta adresi kullanılabilir.
-                </p>
+<p class="section-text">
+Profesyonel iletişim, proje ve çalışma konuları
+için aşağıdaki e-posta adresi kullanılabilir.
+</p>
 
-            </div>
+</div>
 
-            <div>
+<div>
 
-                <a
-                    class="contact-mail"
-                    href="mailto:fsenceragkiran@gmail.com"
-                >
-                    fsenceragkiran@gmail.com
-                </a>
+<a
+class="contact-mail"
+href="mailto:fsenceragkiran@gmail.com">
+fsenceragkiran@gmail.com
+</a>
 
-            </div>
+</div>
 
-        </div>
+</div>
 
-    </div>
+</div>
 
 </section>
 
 </main>
+
+
+<!-- =========================
+     FOTOĞRAF BÜYÜTME
+========================= -->
+
+<div class="lightbox" id="lightbox">
+
+<button class="lightbox-close" id="lightboxClose">
+×
+</button>
+
+<img id="lightboxImage" src="" alt="Sencer AĞKIRAN">
+
+</div>
 
 
 <!-- =========================
@@ -1364,29 +1667,32 @@ footer{
 
 <footer>
 
-    <div class="footer-inner">
+<div class="footer-inner">
 
-        <div class="footer-name">
-            SENCER AĞKIRAN
-        </div>
+<div class="footer-name">
+SENCER AĞKIRAN
+</div>
 
-        <div class="footer-copy">
-            © 2026 Sencer AĞKIRAN — Tüm hakları saklıdır.
-        </div>
+<div class="footer-copy">
+© 2026 Sencer AĞKIRAN — Tüm hakları saklıdır.
+</div>
 
-    </div>
+</div>
 
 </footer>
 
 
 <script>
 
-/* Menü bağlantıları */
+/* =========================
+   MENÜ
+========================= */
+
 document.querySelectorAll('a[href^="#"]').forEach(function(link){
 
     link.addEventListener("click",function(e){
 
-        const target = document.querySelector(
+        const target=document.querySelector(
             this.getAttribute("href")
         );
 
@@ -1404,7 +1710,84 @@ document.querySelectorAll('a[href^="#"]').forEach(function(link){
 
 });
 
+
+/* =========================
+   FOTOĞRAF GALERİSİ
+========================= */
+
+const galleryItems=document.querySelectorAll(".gallery-item");
+
+const lightbox=document.getElementById("lightbox");
+
+const lightboxImage=document.getElementById("lightboxImage");
+
+const lightboxClose=document.getElementById("lightboxClose");
+
+
+galleryItems.forEach(function(item){
+
+    item.addEventListener("click",function(){
+
+        const image=item.querySelector("img");
+
+        lightboxImage.src=image.src;
+
+        lightboxImage.alt=image.alt;
+
+        lightbox.classList.add("active");
+
+        document.body.classList.add("modal-open");
+
+    });
+
+});
+
+
+function closeLightbox(){
+
+    lightbox.classList.remove("active");
+
+    lightboxImage.src="";
+
+    document.body.classList.remove("modal-open");
+
+}
+
+
+lightboxClose.addEventListener(
+    "click",
+    closeLightbox
+);
+
+
+lightbox.addEventListener(
+    "click",
+    function(e){
+
+        if(e.target===lightbox){
+
+            closeLightbox();
+
+        }
+
+    }
+);
+
+
+document.addEventListener(
+    "keydown",
+    function(e){
+
+        if(e.key==="Escape"){
+
+            closeLightbox();
+
+        }
+
+    }
+);
+
 </script>
 
 </body>
-                    </html>
+</html>
