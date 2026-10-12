@@ -1,1 +1,423 @@
-<!doctype html><html lang="tr"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta http-equiv="refresh" content="0;url=hakkinda.html"><link rel="canonical" href="hakkinda.html"><title>Sencer AĞKIRAN</title><script>location.replace("hakkinda.html");</script></head><body><a href="hakkinda.html">Hakkında</a></body></html>
+
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Sencer Ağkıran | Kişisel Web Sitesi</title>
+
+  <meta name="description" content="Sencer Ağkıran'ın resmi kişisel web sitesi. Yazılım projeleri, teknoloji çalışmaları, eğitim, hedefler ve iletişim bilgileri.">
+
+  <meta name="author" content="Sencer Ağkıran">
+  <meta name="robots" content="index, follow">
+  <meta name="theme-color" content="#101010">
+
+  <link rel="canonical" href="https://senceragkiran.github.io/">
+
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="tr_TR">
+  <meta property="og:title" content="Sencer Ağkıran | Kişisel Web Sitesi">
+  <meta property="og:description" content="Sencer Ağkıran'ın kişisel web sitesi. Yazılım, teknoloji, projeler ve gelecek hedefleri.">
+  <meta property="og:url" content="https://senceragkiran.github.io/">
+
+  <style>
+    :root {
+      --bg: #101010;
+      --panel: #191919;
+      --cream: #f2ecdf;
+      --gold: #c6a66b;
+      --muted: #aaa69d;
+      --border: rgba(198,166,107,.22);
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      background: var(--bg);
+      color: var(--cream);
+      font-family: Arial, Helvetica, sans-serif;
+      line-height: 1.7;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .container {
+      width: min(1100px, 90%);
+      margin: auto;
+    }
+
+    header {
+      border-bottom: 1px solid var(--border);
+      background: rgba(16,16,16,.96);
+    }
+
+    .navbar {
+      min-height: 78px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+    }
+
+    .logo {
+      color: var(--gold);
+      font-size: 21px;
+      font-weight: 800;
+      letter-spacing: 1px;
+      white-space: nowrap;
+    }
+
+    nav {
+      display: flex;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 22px;
+    }
+
+    nav a {
+      color: #d6d0c5;
+      font-size: 13px;
+      transition: color .2s;
+    }
+
+    nav a:hover {
+      color: var(--gold);
+    }
+
+    .hero {
+      min-height: 74vh;
+      display: flex;
+      align-items: center;
+      padding: 75px 0;
+      background:
+        radial-gradient(ellipse at 80% 30%,
+        rgba(198,166,107,.10), transparent 48%);
+    }
+
+    .eyebrow {
+      color: var(--gold);
+      text-transform: uppercase;
+      letter-spacing: 4px;
+      font-size: 12px;
+      font-weight: bold;
+      margin-bottom: 22px;
+    }
+
+    h1 {
+      max-width: 850px;
+      font-size: clamp(42px, 8vw, 82px);
+      line-height: 1.08;
+      letter-spacing: -2px;
+      margin-bottom: 25px;
+    }
+
+    h1 span {
+      color: var(--gold);
+    }
+
+    .intro {
+      max-width: 680px;
+      color: var(--muted);
+      font-size: 17px;
+      margin-bottom: 32px;
+    }
+
+    .buttons {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 13px;
+    }
+
+    .btn {
+      display: inline-block;
+      padding: 12px 22px;
+      border: 1px solid var(--gold);
+      border-radius: 3px;
+      font-size: 14px;
+      font-weight: bold;
+      transition: .2s;
+    }
+
+    .btn.primary {
+      background: var(--gold);
+      color: #111;
+    }
+
+    .btn:hover {
+      transform: translateY(-2px);
+      opacity: .85;
+    }
+
+    .section {
+      padding: 65px 0;
+      border-top: 1px solid var(--border);
+    }
+
+    .section-label {
+      color: var(--gold);
+      text-transform: uppercase;
+      letter-spacing: 3px;
+      font-size: 11px;
+      margin-bottom: 12px;
+    }
+
+    h2 {
+      font-size: clamp(27px, 5vw, 40px);
+      margin-bottom: 18px;
+    }
+
+    .about-text {
+      color: var(--muted);
+      max-width: 760px;
+    }
+
+    .cards {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 18px;
+      margin-top: 30px;
+    }
+
+    .card {
+      background: var(--panel);
+      border: 1px solid var(--border);
+      padding: 25px;
+      border-radius: 5px;
+      transition: border-color .2s, transform .2s;
+    }
+
+    .card:hover {
+      border-color: var(--gold);
+      transform: translateY(-4px);
+    }
+
+    .card .number {
+      color: var(--gold);
+      font-size: 12px;
+      letter-spacing: 2px;
+    }
+
+    .card h3 {
+      font-size: 19px;
+      margin: 12px 0 8px;
+    }
+
+    .card p {
+      color: var(--muted);
+      font-size: 14px;
+      margin-bottom: 15px;
+    }
+
+    .card a {
+      color: var(--gold);
+      font-size: 13px;
+      font-weight: bold;
+    }
+
+    .contact {
+      background: #151515;
+    }
+
+    footer {
+      padding: 25px 0;
+      color: var(--muted);
+      font-size: 12px;
+      border-top: 1px solid var(--border);
+    }
+
+    footer .container {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      gap: 10px;
+    }
+
+    @media (max-width: 760px) {
+      .navbar {
+        align-items: flex-start;
+        flex-direction: column;
+        padding: 20px 0;
+      }
+
+      nav {
+        gap: 12px 18px;
+      }
+
+      .hero {
+        min-height: auto;
+        padding: 90px 0;
+      }
+
+      .intro {
+        font-size: 15px;
+      }
+
+      .cards {
+        grid-template-columns: 1fr;
+      }
+
+      .section {
+        padding: 48px 0;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <header>
+    <div class="container navbar">
+      <a class="logo" href="/" aria-label="Sencer Ağkıran ana sayfa">
+        SENCER AĞKIRAN
+      </a>
+
+      <nav aria-label="Ana menü">
+        <a href="#anasayfa">Ana Sayfa</a>
+        <a href="hakkinda.html">Hakkımda</a>
+        <a href="egitim.html">Eğitim</a>
+        <a href="projeler.html">Projeler</a>
+        <a href="fikirler.html">Fikirler</a>
+        <a href="medya.html">Medya</a>
+        <a href="iletisim.html">İletişim</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero" id="anasayfa">
+      <div class="container">
+        <p class="eyebrow">Kişisel Web Sitesi · Ankara, Türkiye</p>
+
+        <h1>
+          Sencer<br>
+          <span>Ağkıran.</span>
+        </h1>
+
+        <p class="intro">
+          Teknolojiye, yazılıma ve yenilikçi fikirlere ilgi duyan
+          bir öğrenci. Öğrenmeye, üretmeye ve geleceğin teknolojileri
+          üzerine çalışmaya odaklanıyorum.
+        </p>
+
+        <div class="buttons">
+          <a class="btn primary" href="hakkinda.html">
+            Hakkımda
+          </a>
+
+          <a class="btn" href="projeler.html">
+            Projelerimi Keşfet
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="hakkimda">
+      <div class="container">
+        <p class="section-label">Kısaca Ben</p>
+
+        <h2>Merak. Üretim. Gelişim.</h2>
+
+        <p class="about-text">
+          Ben Sencer Ağkıran. Yazılım ve teknoloji alanında kendimi
+          geliştirmeyi, yeni projeler tasarlamayı ve fikirleri
+          çalışan ürünlere dönüştürmeyi hedefliyorum. Bu web sitesi;
+          çalışmalarımı, projelerimi, eğitim yolculuğumu ve
+          hedeflerimi bir araya getiren kişisel platformumdur.
+        </p>
+      </div>
+    </section>
+
+    <section class="section" id="kesfet">
+      <div class="container">
+        <p class="section-label">Web Sitesi</p>
+
+        <h2>Keşfet</h2>
+
+        <div class="cards">
+          <article class="card">
+            <span class="number">01 / PROFİL</span>
+            <h3>Hakkımda</h3>
+            <p>Kim olduğumu, ilgi alanlarımı ve kişisel hedeflerimi keşfet.</p>
+            <a href="hakkinda.html">Sayfayı incele →</a>
+          </article>
+
+          <article class="card">
+            <span class="number">02 / ÜRETİM</span>
+            <h3>Projelerim</h3>
+            <p>Geliştirdiğim yazılım projelerine ve çalışmalarına göz at.</p>
+            <a href="projeler.html">Projeleri incele →</a>
+          </article>
+
+          <article class="card">
+            <span class="number">03 / GELECEK</span>
+            <h3>Fikirlerim</h3>
+            <p>Üzerinde düşündüğüm fikirleri ve geleceğe yönelik planlarımı gör.</p>
+            <a href="fikirler.html">Fikirleri keşfet →</a>
+          </article>
+
+          <article class="card">
+            <span class="number">04 / EĞİTİM</span>
+            <h3>Eğitim</h3>
+            <p>Eğitim geçmişim ve akademik hedeflerim hakkında bilgi edin.</p>
+            <a href="egitim.html">Eğitime göz at →</a>
+          </article>
+
+          <article class="card">
+            <span class="number">05 / MEDYA</span>
+            <h3>Medya</h3>
+            <p>Görsellerimi ve paylaşımlarımı incele.</p>
+            <a href="medya.html">Medyayı görüntüle →</a>
+          </article>
+
+          <article class="card">
+            <span class="number">06 / İLETİŞİM</span>
+            <h3>İletişim</h3>
+            <p>Benimle iletişime geçmek için iletişim sayfamı ziyaret et.</p>
+            <a href="iletisim.html">İletişime geç →</a>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section contact">
+      <div class="container">
+        <p class="section-label">İletişim</p>
+        <h2>Bir fikrin mi var?</h2>
+        <p class="about-text">
+          Yazılım, teknoloji veya projeler hakkında iletişim kurmak
+          için iletişim sayfamı ziyaret edebilirsin.
+        </p>
+        <br>
+        <a class="btn primary" href="iletisim.html">
+          İletişim Sayfası
+        </a>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container">
+      <span>© <span id="year"></span> Sencer Ağkıran</span>
+      <span>Kişisel Web Sitesi</span>
+    </div>
+  </footer>
+
+  <script>
+    document.getElementById("year").textContent =
+      new Date().getFullYear();
+  </script>
+
+</body>
+</html>
